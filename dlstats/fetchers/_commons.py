@@ -122,7 +122,7 @@ class Fetcher(object):
         if data_tree and not isinstance(data_tree, list):
             raise TypeError("data_tree is not instance of list")
 
-        if not data_tree or force_update:
+        if data_tree is None or force_update is True:
             data_tree = self.build_data_tree()
             Categories.remove_all(self.provider_name, db=self.db)
 
@@ -250,8 +250,10 @@ class Fetcher(object):
 
             return self.upsert_dataset(dataset_code)
 
-        except errors.RejectUpdatedDataset:
+        except errors.RejectUpdatedDataset as err:
             msg = "Reject dataset updated for provider[%s] - dataset[%s]"
+            if err.comments:
+                msg = "%s - %s" % (msg, err.comments)
             logger.info(msg % (self.provider_name, dataset_code))
         finally:
             end = time.time() - start
@@ -564,7 +566,6 @@ class Categories(DlstatsCollection):
     def update_database(self):
         schemas.category_schema(self.bson)
         return self.update_mongo_collection(constants.COL_CATEGORIES, 
-                                            #['provider_name', 'category_code'],
                                             ['slug'],
                                             self.bson)
 class Datasets(DlstatsCollection):
@@ -715,7 +716,24 @@ class Datasets(DlstatsCollection):
             msg = "dataset not found for previous loading. provider[%s] - dataset[%s]"
             logger.warning(msg % (provider_name, dataset_code))
 
+    def set_dimension_frequency(self, dimension_name):
+        '''Identify frequency field in dataset dimensions'''
+        if not dimension_name:
+            return
+        if not self.metadata:
+            self.metadata = {}
+        self.metadata["dim_frequency"] = dimension_name
+
+    def set_dimension_country(self, dimension_name):
+        '''Identify country field in dataset dimensions'''
+        if not dimension_name:
+            return
+        if not self.metadata:
+            self.metadata = {}
+        self.metadata["dim_country"] = dimension_name
+    
     def add_frequency(self, frequency):
+        '''Add used frequency for this dataset'''
         if not frequency:
             return
         if not self.metadata:
@@ -728,10 +746,13 @@ class Datasets(DlstatsCollection):
     def is_recordable(self):
 
         if self.fetcher.max_errors and self.fetcher.errors >= self.fetcher.max_errors:
+            self.metadata["disable_reason"] = "fetcher max errors exceeded [%s]" % self.fetcher.errors
             return False
         
         if self.fetcher.db[constants.COL_PROVIDERS].count({"name": self.provider_name}) == 0:
-            logger.critical("provider[%s] not found in DB" % self.provider_name)
+            msg = "provider[%s] not found in DB" % self.provider_name
+            self.metadata["disable_reason"] = msg
+            logger.critical(msg)
             return False
         
         query = {"provider_name": self.provider_name,
@@ -739,6 +760,7 @@ class Datasets(DlstatsCollection):
         if self.fetcher.db[constants.COL_SERIES].count(query) > 0:
             return True
 
+        self.metadata["disable_reason"] = "not series for this dataset"
         return False
     
     @timeit("commons.Datasets.update_database")
@@ -760,7 +782,7 @@ class Datasets(DlstatsCollection):
                                               self.dataset_code,
                                               self.fetcher.max_errors))
         finally:
-            now = clean_datetime()
+            now = self.series.now
     
             if not self.download_first:
                 self.download_first = now
@@ -834,16 +856,38 @@ class Datasets(DlstatsCollection):
             
             #if save_only:
             #    self.series.reset_counters()
-                        
-            schemas.dataset_schema(self.bson)
-            
-            result = self.update_mongo_collection(constants.COL_DATASETS,
-                                                  ['slug'],
-                                                  self.bson)
+    
+            if self.series.count_inserts + self.series.count_updates > 0:
+                schemas.dataset_schema(self.bson)
+                result = self.update_mongo_collection(constants.COL_DATASETS,
+                                                      ['slug'],
+                                                      self.bson)
+            else:
+                result = self.minimal_update_database()
+                """
+                query = {"slug": self.slug()}
+                query_update = {"$set": {"download_last": self.download_last}}
+                result = self.fetcher.db[constants.COL_DATASETS].update_one(query,
+                                                                    query_update)
+                result = result.upserted_id
+                logger.info("update only download_last for dataset[%s]" % self.dataset_code)
+                """
     
             self.fetcher.hook_after_dataset(self)
     
             return result
+        
+    def minimal_update_database(self):
+        query = {"slug": self.slug()}
+        query_update =  {"$set": {
+                            "download_last": self.series.now,
+                            "metadata": self.metadata
+                        }}
+        result = self.fetcher.db[constants.COL_DATASETS].update_one(query,
+                                                                    query_update)
+        result = result.upserted_id
+        logger.warn("minimal update for dataset[%s]" % self.dataset_code)
+        
 
 class SeriesIterator:
     """Base class for all Fetcher data class
@@ -1255,6 +1299,8 @@ class Series:
         self.series_list = deque()
         self.fatal_error = False
         
+        self.now = clean_datetime()
+        
         self.count_accepts = 0
         self.count_rejects = 0
         self.count_inserts = 0
@@ -1373,15 +1419,6 @@ class Series:
         return self.fetcher.db
         #TODO: settings for new connection
         #return get_mongo_db()
-    """
-    def _update_series_list_unit(self, data, old_series=None, last_update=None, 
-                                provider_name=None, dataset_code=None):
-        return update_series_list_unit(data, 
-                                       old_series=old_series, 
-                                       last_update=last_update, 
-                                       provider_name=provider_name, 
-                                       dataset_code=dataset_code)
-    """
 
     @timeit("commons.Series.update_series_list", stats_only=True)
     def update_series_list(self):
