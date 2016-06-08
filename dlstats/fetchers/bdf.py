@@ -12,6 +12,7 @@ from dlstats.utils import Downloader, get_ordinal_from_period, make_store_path,g
 from dlstats.fetchers._commons import Fetcher, Datasets, Providers, Categories
         
 def get_ns(fp):
+    '''Get the namespace like urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=BDF:BDF_AME1(1.0)'''
     nsmap=list()
     context=etree.iterparse(fp,events=['start-ns'],remove_blank_text=True)
     for event,elem in context:
@@ -68,6 +69,7 @@ class BDF_Data:
         return self
         
     def __next__(self):
+        '''try...except... for closing the file when an error occurs'''
         try:
             if not self.context:
                 self.file_handle=open(self.filepath,'rb')
