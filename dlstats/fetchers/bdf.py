@@ -182,12 +182,12 @@ if __name__=="__main__":
     dataset=Datasets(provider_name='BDF',
                      dataset_code='DET',
                      name='1234',
-                     doc_href='http://webstat.banque-france.fr/fr/concepts.do?node=DATASETS',
+                     doc_href='http://webstat.banque-france.fr/en/concepts.do?node=DATASETS',
                      last_update='20160603',
                      fetcher=f,
                      is_load_previous_version=False)
 
-    iterator=BDF_Data(dataset,'http://webstat.banque-france.fr/fr/export.do?node=DATASETS_DET&exportType=sdmx')     
+    iterator=BDF_Data(dataset,'http://webstat.banque-france.fr/en/export.do?node=DATASETS_DET&exportType=sdmx')     
     for i in iterator:
         for key in i.keys():
             print(key,':',i[key])
