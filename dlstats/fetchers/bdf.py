@@ -9,8 +9,8 @@ from lxml import etree
 import requests
 import xlrd
 import re
-import sys
 import pprint
+import traceback
 
 from collections import defaultdict,OrderedDict
 
@@ -80,7 +80,8 @@ class BDF_Data:
         
         xls_handle = xlrd.open_workbook(self._load_xls())
         self.dataset.concepts = get_concepts(xls_handle)
-        self.dataset.dimension_keys = self.dataset.concepts.keys()
+        self.dataset.dimension_keys = get_concepts(xls_handle).keys()
+        self.dataset.attribute_keys=[]
         self.dataset.codelists = get_codelists(xls_handle, self.dataset.dimension_keys)
         
         self.filepath = self._load_datas()       
@@ -140,7 +141,8 @@ class BDF_Data:
                 series = self.clean_field(self._build_series(group, p_series, obs))        
         except:
             self.file_handle.close()
-            print("The iteration stopped because of an error!", sys.exc_info()[1])
+            print("The iteration stopped because of an error!")
+            traceback.print_exc()
             raise StopIteration()
         
         if self.nbIteration != self.nbseries:
@@ -157,28 +159,38 @@ class BDF_Data:
         return bson   
                         
     def _build_series(self, group, p_series, obs):
+
         dimensions = OrderedDict()
         attributes = OrderedDict()
         bson = OrderedDict() 
         dim = group.copy()
         dim.update(p_series) 
         attrib = defaultdict(list)
-        
-        attribute_keys = [a for a in obs[0].keys() if a not in ['TIME_PERIOD','OBS_VALUE']]
-        
+
         frequency,start_date,end_date = get_dates(dim, obs)
         self.dataset.add_frequency(frequency)
         
         values=list()
         for v in obs:
             period = v['TIME_PERIOD']
-            a = OrderedDict()
-            for k in attribute_keys:
+            Obs_attribute_keys = [k for k in v.keys() if k not in ['TIME_PERIOD','OBS_VALUE']]            
+            
+            for key in Obs_attribute_keys:
+                if key not in self.dataset.attribute_keys:
+                    self.dataset.attribute_keys.append(key)
+                    self.dataset.concepts[key] = key
+                    self.dataset.codelists[key] = {}
+                if v.get(key) not in self.dataset.codelists[key]:
+                    self.dataset.codelists[key][v.get(key)] = v.get(key)
+
+        for v in obs: 
+            a=OrderedDict()
+            for k in self.dataset.attribute_keys:
                 try:
-                    a[k] = v[k]
+                    a[k]=v[k]
                 except KeyError:
-                    a[k] = ''
-                attrib[k].append(a[k])
+                    a[k]=''
+                attrib[k].append(a[k])                        
             value = { 'attributes': a,
                     'release_date': self.release_date,
                     'ordinal': get_ordinal_from_period(period, freq=frequency),
@@ -186,30 +198,17 @@ class BDF_Data:
                     'value': v['OBS_VALUE']
                     }
             values.append(value)
-        
+
         for key in self.dataset.dimension_keys:
             dimensions[key] = self.dimension_list.update_entry(key,
                                                                 dim[key], 
-                                                                self.dataset.codelists[key][dim[key]])
-#            if not key in self.dataset.codelists:
-#                self.dataset.codelists[key] = {}
-#            if not dimensions[key] in self.dataset.codelists[key]:
-#                self.dataset.codelists[key][dimensions[key]] = dimensions[key]
-            
-        for key in attribute_keys:
-            try:
-                attributes[key] = self.attribute_list.update_entry(key,
+                                                                self.dataset.codelists[key][dim[key]])           
+        for key in self.dataset.attribute_keys:
+            attributes[key] = self.attribute_list.update_entry(key,
                                                                 str(attrib[key]),
-                                                                self.dataset.codelists[key][attrib[key]])
-            except KeyError:
-                pass
-            if not key in self.dataset.codelists:
-                self.dataset.codelists[key] = {}
-            if not attributes[key] in self.dataset.codelists[key]:
-                self.dataset.codelists[key][str(attributes[key])] = attributes[key]
+                                                                attrib[key])
             
-        
-        series_name = dimensions['EXT_TITLE']
+        series_name = dim['EXT_TITLE']
         series_key =  self.nbseries
     
         bson['values'] = values                
@@ -244,8 +243,10 @@ if __name__ == "__main__":
     print()
     pp = pprint.PrettyPrinter(indent=4)
     pp.pprint(iterator.dataset.dimension_keys)
-    print()
-    pp.pprint(iterator.dataset.codelists)
+    pp.pprint(iterator.dataset.attribute_keys)
+    pp.pprint(iterator.dataset.concepts)
+    pp.pprint(iterator.dataset.codelists['FREQ'])
+    pp.pprint(iterator.dataset.codelists['OBS_STATUS'])
 
 
 
