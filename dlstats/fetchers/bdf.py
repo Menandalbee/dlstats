@@ -7,6 +7,7 @@ Created on Tue May 24 12:33:35 2016
 
 from lxml import etree
 import requests
+import logging
 import xlrd
 import re
 import pprint
@@ -15,8 +16,54 @@ import traceback
 from collections import defaultdict,OrderedDict
 
 from dlstats.utils import Downloader, get_ordinal_from_period, make_store_path,get_datetime_from_period
-from dlstats.fetchers._commons import Fetcher, Datasets, Providers, Categories
+from dlstats.fetchers._commons import Fetcher, Datasets, Providers, SeriesIterator
 
+INDEX_URL='http://webstat.banque-france.fr/en/concepts.do?node=DATASETS'
+logger = logging.getLogger(__name__)
+
+def download_page(url):
+    url=url.strip()
+    response=requests.get(url)
+    
+    if not response.ok:
+        msg = "download url[%s] - status_code[%s] - reason[%s]" % (url, 
+                                                                   response.status_code, 
+                                                                   response.reason)
+        logger.error(msg)
+        response.raise_for_status()
+
+    return response.content
+
+def parse_site():
+    url=INDEX_URL
+    page=download_page(url)
+    html=etree.HTML(page)
+    anchors=html.findall('.//div[@class="childrenNode leaf"]/h4/a')
+    site_tree=[]
+    for a in anchors:
+        site_tree.append(make_category(a))
+    return site_tree
+    
+def make_category(anchors):
+    category=OrderedDict()
+    category['name']=re.match('\((.*)\) (.*)',anchors.text).group(2)
+    category['category_code']=re.match('\((.*)\) (.*)',anchors.text).group(1)
+    category['parent']=None
+    category['all_parent']=None
+    category['datasets']=make_dataset(anchors)
+    return category
+
+def make_dataset(anchors):
+    dataset=OrderedDict()
+    dataset['name']=re.match('\((.*)\) (.*)',anchors.text).group(2)
+    dataset['dataset_code']=re.match('\((.*)\) (.*)',anchors.text).group(1)
+    dataset['release_date']=None
+    dataset['filename']=dataset['dataset_code']+'.xml'
+    dataset['metadata']={}
+    dataset['metadata']['url']='http://webstat.banque-france.fr/en/export.do?node=DATASETS_'+dataset['dataset_code']+'&exportType=sdmx'
+    dataset['metadata']['doc_href']=None
+    return dataset
+    
 def make_xls_url(dataset_code):
     node = "DATASETS_" + dataset_code
     url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=%s" % (node)
@@ -65,18 +112,42 @@ def get_dates(dim, obs):
     end_date = obs[-1]['TIME_PERIOD']
     return frequency,start_date,end_date
     
+
+class BDF(Fetcher):
+    def __init__(self, **kwargs):
+        super().__init__(provider_name='BDF', version=None, **kwargs)
         
-class BDF_Data:
+        self.provider = Providers(name=self.provider_name,
+                                  long_name='Banque de France',
+                                  version=None,
+                                  region='France',
+                                  website='http://webstat.banque-france.fr/',
+                                  fetcher=self)           
+        self.categories_filter = []
+        
+    def build_data_tree(self):
+        categories=parse_site()
+        return categories
+    
+    def upsert_dataset(self,dataset_code):
+        self.get_selected_datasets()        
+        dataset_settings = self.selected_datasets[dataset_code]
+        dataset = Datasets(provider_name=self.provider_name,
+                           dataset_code=dataset_code,
+                           name=dataset_settings["name"],
+                           fetcher=self)
+        
+        url=self.dataset_settings['metadata']['url']
+        dataset.series.data_iterator=BDF_Data(dataset,url)
+        
+        return dataset.update_database()
+                   
+class BDF_Data(SeriesIterator):
     def __init__(self, dataset, url):
-        self.dataset = dataset
+        super().__init__(dataset)
+
         self.dataset_url = url
-        self.fetcher = self.dataset.fetcher          
-        self.provider_name = self.dataset.provider_name
-        self.dataset_code = self.dataset.dataset_code
         self.release_date = self.dataset.last_update
-        self.dimension_list = self.dataset.dimension_list
-        self.attribute_list = self.dataset.attribute_list
-        self.store_path = self.get_store_path()
         
         xls_handle = xlrd.open_workbook(self._load_xls())
         self.dataset.concepts = get_concepts(xls_handle)
@@ -99,7 +170,7 @@ class BDF_Data:
     def _load_datas(self):
         download = Downloader(url=self.dataset_url, 
                               filename=self.dataset_code,
-                              store_filepath=self.store_path,
+                              store_filepath=self.get_store_path(),
                               use_existing_file=self.fetcher.use_existing_file)
         filepath = download.get_filepath()
         return filepath 
@@ -108,7 +179,7 @@ class BDF_Data:
         url_xls = make_xls_url(self.dataset_code)
         download = Downloader(url=url_xls, 
                           filename='info_' + self.dataset_code,
-                          store_filepath=self.store_path,
+                          store_filepath=self.get_store_path(),
                           use_existing_file=self.fetcher.use_existing_file)
         filepath = download.get_filepath()
         return filepath
@@ -247,6 +318,8 @@ if __name__ == "__main__":
     pp.pprint(iterator.dataset.concepts)
     pp.pprint(iterator.dataset.codelists['FREQ'])
     pp.pprint(iterator.dataset.codelists['OBS_STATUS'])
+
+    
 
 
 
