@@ -10,8 +10,8 @@ import requests
 import logging
 import xlrd
 import re
-import pprint
 import traceback
+from datetime import datetime
 
 from collections import defaultdict,OrderedDict
 
@@ -22,8 +22,8 @@ INDEX_URL='http://webstat.banque-france.fr/en/concepts.do?node=DATASETS'
 logger = logging.getLogger(__name__)
 
 def download_page(url):
-    url=url.strip()
-    response=requests.get(url)
+    url = url.strip()
+    response = requests.get(url)
     
     if not response.ok:
         msg = "download url[%s] - status_code[%s] - reason[%s]" % (url, 
@@ -35,34 +35,35 @@ def download_page(url):
     return response.content
 
 def parse_site():
-    url=INDEX_URL
-    page=download_page(url)
-    html=etree.HTML(page)
-    anchors=html.findall('.//div[@class="childrenNode leaf"]/h4/a')
-    site_tree=[]
+    url = INDEX_URL
+    page = download_page(url)
+    html = etree.HTML(page)
+    anchors = html.findall('.//div[@class="childrenNode leaf"]/h4/a')
+    site_tree = []
     for a in anchors:
         site_tree.append(make_category(a))
     return site_tree
     
 def make_category(anchors):
-    category=OrderedDict()
-    category['name']=re.match('\((.*)\) (.*)',anchors.text).group(2)
-    category['category_code']=re.match('\((.*)\) (.*)',anchors.text).group(1)
-    category['parent']=None
-    category['all_parent']=None
-    category['datasets']=make_dataset(anchors)
+    category = OrderedDict()
+    category['name'] = re.match('\((.*)\) (.*)',anchors.text).group(2)
+    category['category_code'] = re.match('\((.*)\) (.*)',anchors.text).group(1)
+    category['parent'] = 'concept'
+    category['all_parents'] = ['concept']
+    category['datasets'] = make_dataset(anchors)
     return category
 
 def make_dataset(anchors):
-    dataset=OrderedDict()
-    dataset['name']=re.match('\((.*)\) (.*)',anchors.text).group(2)
-    dataset['dataset_code']=re.match('\((.*)\) (.*)',anchors.text).group(1)
-    dataset['release_date']=None
-    dataset['filename']=dataset['dataset_code']+'.xml'
-    dataset['metadata']={}
-    dataset['metadata']['url']='http://webstat.banque-france.fr/en/export.do?node=DATASETS_'+dataset['dataset_code']+'&exportType=sdmx'
-    dataset['metadata']['doc_href']=None
-    return dataset
+    dataset = OrderedDict()
+    dataset['name'] = re.match('\((.*)\) (.*)',anchors.text).group(2)
+    dataset['dataset_code'] = re.match('\((.*)\) (.*)',anchors.text).group(1)
+#    dataset['release_date']='20160616'
+#    dataset['filename']=dataset['dataset_code']+'.xml'
+    dataset['last_update'] = datetime(2016,6,20)
+    dataset['metadata'] = {}
+    dataset['metadata']['url'] = 'http://webstat.banque-france.fr/en/export.do?node=DATASETS_'+dataset['dataset_code']+'&exportType=sdmx'
+    dataset['metadata']['doc_href'] = None
+    return [dataset]
     
 def make_xls_url(dataset_code):
     node = "DATASETS_" + dataset_code
@@ -108,37 +109,38 @@ def get_events(fp, ns):
     
 def get_dates(dim, obs):
     frequency = dim['FREQ']
-    start_date = obs[0]['TIME_PERIOD']
-    end_date = obs[-1]['TIME_PERIOD']
+    start_date = get_ordinal_from_period(obs[0]['TIME_PERIOD'],freq=frequency)
+    end_date = get_ordinal_from_period(obs[-1]['TIME_PERIOD'],freq=frequency)
     return frequency,start_date,end_date
     
 
 class BDF(Fetcher):
     def __init__(self, **kwargs):
-        super().__init__(provider_name='BDF', version=None, **kwargs)
+        super().__init__(provider_name='BDF', version=2, **kwargs)
         
         self.provider = Providers(name=self.provider_name,
                                   long_name='Banque de France',
-                                  version=None,
+                                  version=2,
                                   region='France',
                                   website='http://webstat.banque-france.fr/',
                                   fetcher=self)           
-        self.categories_filter = []
+        self.categories_filter = ['AME','TCN1']
         
     def build_data_tree(self):
-        categories=parse_site()
+        categories = parse_site()
         return categories
     
     def upsert_dataset(self,dataset_code):
         self.get_selected_datasets()        
-        dataset_settings = self.selected_datasets[dataset_code]
+        self.dataset_settings = self.selected_datasets[dataset_code]
         dataset = Datasets(provider_name=self.provider_name,
                            dataset_code=dataset_code,
-                           name=dataset_settings["name"],
+                           name=self.dataset_settings["name"],
+                           last_update=self.dataset_settings['last_update'],
                            fetcher=self)
-        
-        url=self.dataset_settings['metadata']['url']
-        dataset.series.data_iterator=BDF_Data(dataset,url)
+                           
+        url = self.dataset_settings['metadata']['url']
+        dataset.series.data_iterator = BDF_Data(dataset,url)
         
         return dataset.update_database()
                    
@@ -159,7 +161,7 @@ class BDF_Data(SeriesIterator):
         self.nsString = get_ns(self.filepath)
         self.context = None
         self.file_handle = None
-        
+                
         self.nbseries = 0
         self.nbIteration = 0
 
@@ -178,7 +180,7 @@ class BDF_Data(SeriesIterator):
     def _load_xls(self):
         url_xls = make_xls_url(self.dataset_code)
         download = Downloader(url=url_xls, 
-                          filename='info_' + self.dataset_code,
+                          filename=self.dataset_code + '_info.xls',
                           store_filepath=self.get_store_path(),
                           use_existing_file=self.fetcher.use_existing_file)
         filepath = download.get_filepath()
@@ -224,9 +226,9 @@ class BDF_Data(SeriesIterator):
     
     def clean_field(self, bson):
         if not 'start_ts' in bson or not bson.get('start_ts'):
-            bson['start_ts'] = get_datetime_from_period(bson['start_date'], freq=bson['frequency'])
+            bson['start_ts'] = get_datetime_from_period(bson["values"][0]["period"], freq=bson['frequency'])
         if not 'end_ts' in bson or not bson.get('end_ts'):
-            bson['end_ts'] = get_datetime_from_period(bson['end_date'], freq=bson['frequency'])  
+            bson['end_ts'] = get_datetime_from_period(bson["values"][-1]["period"], freq=bson['frequency'])  
         return bson   
                         
     def _build_series(self, group, p_series, obs):
@@ -286,41 +288,11 @@ class BDF_Data(SeriesIterator):
         bson['provider_name'] = self.provider_name       
         bson['dataset_code'] = self.dataset_code
         bson['name'] = series_name
-        bson['key'] = series_key
+        bson['key'] = str(series_key)
         bson['start_date'] = start_date
-        bson['end_date'] = end_date  
+        bson['end_date'] = end_date
         bson['last_update'] = self.release_date
         bson['dimensions'] = dimensions
         bson['frequency'] = frequency
         bson['attributes'] = attributes
-        return bson 
-
-
-'''Test'''
-if __name__ == "__main__":
-    f = Fetcher(provider_name='BDF',is_indexes=False)
-    dataset = Datasets(provider_name='BDF',
-                     dataset_code='DET',
-                     name='1234',
-                     doc_href="http://webstat.banque-france.fr/en/concepts.do?node=DATASETS" ,
-                     last_update='20160603',
-                     fetcher=f,
-                     is_load_previous_version=False)
-
-    iterator = BDF_Data(dataset, "http://webstat.banque-france.fr/en/export.do?node=DATASETS_DET&exportType=sdmx")         
-    for i in iterator:
-        for key in i.keys():
-            print(key, ':', i[key])
-    print()
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(iterator.dataset.dimension_keys)
-    pp.pprint(iterator.dataset.attribute_keys)
-    pp.pprint(iterator.dataset.concepts)
-    pp.pprint(iterator.dataset.codelists['FREQ'])
-    pp.pprint(iterator.dataset.codelists['OBS_STATUS'])
-
-    
-
-
-
-                        
+        return bson

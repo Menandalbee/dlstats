@@ -161,6 +161,7 @@ class FetcherTestCase(BaseFetcherTestCase):
             self.assertTrue(os.path.exists(filepath))
             self.register_url(url, filepath, content_type='text/html')
         
+    def _load_files_info_ame(self,dataset_code=None):
         url = "http://webstat.banque-france.fr/en/exportDsd.do?datasetId=167&datasetName=AME&keyFamily=BDF_AME1-Macro Economy&node=DATASETS_AME"     
         filepath = get_filepath('AME_info.xls')
         self.assertTrue(os.path.exists(filepath))
@@ -180,6 +181,7 @@ class FetcherTestCase(BaseFetcherTestCase):
     def test_upsert_dataset_ame(self):        
         dataset_code = "AME"
         self._load_files(dataset_code)
+        self._load_files_info_ame(dataset_code)
         self._load_files_dataset_ame()
     
         self.assertProvider()
