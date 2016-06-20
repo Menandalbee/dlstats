@@ -1,0 +1,93 @@
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+ul.datalist li div.legnumber {
+    width: 4%;
+    font-weight: bold;
+}
+
+ul.datalist li div.legal {
+    width: 95%;
+}
+
+FIELDSET {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+H2.title:before {
+    content: counter( section ) ". ";
+    counter-increment: section;
+}
+
+H3.title:before {
+    content: counter( section ) "." counter( subsection ) ". ";
+    counter-increment: subsection;
+}
+
+H4.title:before {
+    content: counter( section ) "." counter( subsection ) "." counter( subsubsection ) ". ";
+    counter-increment: subsubsection;
+}
+
+H4 {
+    font-size: 95%;
+    font-style: italic;
+}
+
+DIV.itemizedlist UL LI {
+    list-style-type: disc;
+}
+
+SPAN.homenews {
+    font-weight: bold;
+    color: #666665;
+}
+
+DIV.table table {
+    border-collapse: collapse;
+    empty-cells: show;
+    margin: 5px 0 5px 0;
+}
+
+DIV.table table tbody tr td {
+    margin: 0;
+    padding: 0;
+}
+
+DIV.table table tbody tr td p {
+    padding: .5em;
+    margin: 0;
+}
+
+DIV.table P.title {
+    font-size: small;
+    font-weight: bold;
+}
+
+DIV.rightindent {
+    padding-left: 55px;
+}
+
+alignleft {
+    text-align: left
+}
+
+strong.warning {
+    color: #c30;
+}
+
+em.remark {
+    color: #909090;
+    font-size: .9em;
+}
+
+.red {
+    color: #cc0000;
+}
