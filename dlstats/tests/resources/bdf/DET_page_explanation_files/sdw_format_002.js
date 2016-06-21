@@ -1,0 +1,4 @@
+SdwFormat.locale({
+	"thousandsSeparator": ",",
+	"decimalSeparator": "."
+});
