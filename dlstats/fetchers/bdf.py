@@ -186,6 +186,10 @@ class BDF_Data(SeriesIterator):
         filepath = download.get_filepath()
         return filepath
         
+    def fix_series_keys(self, dimension):
+        key=self.dataset_code+'.'+'.'.join(dimension.values())
+        return key
+                        
     def __next__(self):
         '''try...except... for closing the file when an error occurs'''
         try:
@@ -274,7 +278,7 @@ class BDF_Data(SeriesIterator):
                                                                 attrib[key])
             
         series_name = dim['TITLE_COMPL']
-        series_key =  self.nbseries
+        series_key =  self.fix_series_keys(dimensions)
     
         bson['values'] = values                
         bson['provider_name'] = self.provider_name       

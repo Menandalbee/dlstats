@@ -17,9 +17,9 @@ from dlstats.tests.fetchers.base import BaseFetcherTestCase
 
 
 BDF_HTML_PAGES = [
-    ("http://webstat.banque-france.fr/en/concepts.do?node=DATASETS", "WebstatBDF.htm"),
-    ("http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_AME", "AME_page_explanation.htm"),
-    ("http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_DET", "DET_page_explanation.htm")
+    ("http://webstat.banque-france.fr/en/concepts.do?node=DATASETS", "WebstatBDF.html"),
+    ("http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_AME", "AME_page_info.html"),
+    ("http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_DET", "DET_page_info.html")
 ]
 
 RESOURCES_DIR = os.path.abspath(os.path.join(BASE_RESOURCES_DIR, "bdf"))
@@ -93,12 +93,12 @@ DATA_AME = {
     "series_reject_frequency": 0,
     "series_reject_empty": 0,
     "series_all_values": 7107,
-    "series_key_first": "1",
-    "series_key_last": "162",
+    "series_key_first": "AME.A.AUT.1.0.212.0.HVGDP",
+    "series_key_last": "AME.A.USA.1.0.99.0.UVGD",
     "series_sample": {
         'provider_name': 'BDF',
         'dataset_code': 'AME',
-        'key': '1',
+        'key': 'AME.A.AUT.1.0.212.0.HVGDP',
         'name': "Austria - Gross domestic product at current prices per head of population",
         'frequency': 'A',
         'last_update': None,
@@ -205,12 +205,12 @@ DATA_DET = {
     "series_reject_frequency": 0,
     "series_reject_empty": 0,
     "series_all_values": 119,
-    "series_key_first": "1",
-    "series_key_last": "4",
+    "series_key_first": "DET.A.FR.11C2.F51100.M.Z9.8.F",
+    "series_key_last": "DET.A.FR.1315.F33200.M.Z9.8.F",
     "series_sample": {
         'provider_name': 'BDF',
         'dataset_code': 'DET',
-        'key': '1',
+        'key': 'DET.A.FR.11C2.F51100.M.Z9.8.F',
         'name': "Percentage of the capital of CAC 40 resident companies held by non-residents",
         'frequency': 'A',
         'last_update': None,
