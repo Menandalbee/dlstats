@@ -57,24 +57,21 @@ def make_dataset(anchors):
     dataset = OrderedDict()
     dataset['name'] = re.match('\((.*)\) (.*)', anchors.text).group(2)
     dataset['dataset_code'] = re.match('\((.*)\) (.*)', anchors.text).group(1)
-#    dataset['release_date']='20160616'
-#    dataset['filename']=dataset['dataset_code']+'.xml'
     dataset['last_update'] = datetime(2016, 6, 20)
     dataset['metadata'] = {}
-    dataset['metadata']['url'] = 'http://webstat.banque-france.fr/en/export.do?node=DATASETS_'+dataset['dataset_code']+'&exportType=sdmx'
+    dataset['metadata']['url'] = 'http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&exportType=sdmx' % (dataset['dataset_code'])
     dataset['metadata']['doc_href'] = None
     return [dataset]
     
 def make_xls_url(dataset_code):
-    node = "DATASETS_" + dataset_code
-    url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=%s" % (node)
+    url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_%s" % (dataset_code)
     req = requests.get(url)
     page = req.content
     html = etree.HTML(page)
     anchors = html.xpath('.//a[starts-with(@href,"javascript:")]')
     v = anchors[0].get('href')
     req = re.match(r".*\(\'(.*)\',\'(.*)\',\'(.*)\'\).*", v)
-    url = "http://webstat.banque-france.fr/en/exportDsd.do?datasetId=%s&datasetName=%s&keyFamily=%s&node=%s" % (req.group(1), req.group(2), req.group(3), node)
+    url = "http://webstat.banque-france.fr/en/exportDsd.do?datasetId=%s&datasetName=%s&keyFamily=%s&node=DATASETS_%s" % (req.group(1), req.group(2), req.group(3), dataset_code)
     return url
     
 def get_sheet_cells(fp, name):
@@ -99,7 +96,7 @@ def get_ns(fp):
     context = etree.iterparse(fp, events=['start-ns'], remove_blank_text=True)
     for event, elem in context:
         nsmap.append(elem)
-        s = '{' + nsmap[-1][1] + '}'
+        s = '{%s}' % (nsmap[-1][1])
     return s
     
 def get_events(fp, ns):
@@ -140,8 +137,7 @@ class BDF(Fetcher):
                            fetcher=self)
                            
         url = self.dataset_settings['metadata']['url']
-        dataset.series.data_iterator = BDF_Data(dataset,url)
-        
+        dataset.series.data_iterator = BDF_Data(dataset,url)        
         return dataset.update_database()
                    
 class BDF_Data(SeriesIterator):
@@ -159,7 +155,6 @@ class BDF_Data(SeriesIterator):
         
         self.filepath = self._load_datas()       
         self.nsString = get_ns(self.filepath)
-        self.context = None
         self.file_handle = None
                 
         self.nbseries = 0
@@ -187,13 +182,13 @@ class BDF_Data(SeriesIterator):
         return filepath
         
     def fix_series_keys(self, dimension):
-        key=self.dataset_code+'.'+'.'.join(dimension.values())
+        key='%s.%s' % (self.dataset_code, '.'.join(dimension.values()))
         return key
                         
     def __next__(self):
         '''try...except... for closing the file when an error occurs'''
         try:
-            if not self.context:
+            if not self.file_handle:
                 self.file_handle = open(self.filepath, 'rb')
                 self.context = get_events(self.file_handle, self.nsString)
     			
@@ -228,7 +223,6 @@ class BDF_Data(SeriesIterator):
         return bson
                         
     def _build_series(self, group, p_series, obs):
-
         dimensions = OrderedDict()
         attributes = OrderedDict()
         bson = OrderedDict() 
