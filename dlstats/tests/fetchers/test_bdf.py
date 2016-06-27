@@ -323,3 +323,18 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertProvider()
         self.assertDataset(dataset_code)        
         self.assertSeries(dataset_code)
+	
+	@httpretty.activate
+    def test_parse_agenda(self):
+        url = "http://webstat.banque-france.fr/en/ajax/calendarPublication.do"
+        self.register_url(url, get_filepath('calendarPublication.xml'), content_type='text/html')
+        
+        model = [{'dataflow_key': '10',
+                  'reference_period': '2016May',
+                  'scheduled_date': '2016-06-27'},
+                  {'dataflow_key': '3',
+                   'reference_period': '2016May',
+                   'scheduled_date': '2016-06-27'}]
+                 
+        self.assertEqual(list(self.fetcher._parse_agenda())[0], model[0])
+        self.assertEqual(list(self.fetcher._parse_agenda())[1], model[1])

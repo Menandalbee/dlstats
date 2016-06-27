@@ -139,6 +139,21 @@ class BDF(Fetcher):
         url = self.dataset_settings['metadata']['url']
         dataset.series.data_iterator = BDF_Data(dataset,url)        
         return dataset.update_database()
+    
+    def _parse_agenda(self):
+        date1 = datetime.datetime.now()
+        this_week_start_dt = str(date1-datetime.timedelta(days=date1.weekday())).split()[0]
+        this_week_end_dt = str(date1+datetime.timedelta(days=6-date1.weekday())).split()[0]
+        
+        url = "http://webstat.banque-france.fr/en/ajax/calendarPublication.do"
+        agenda = eval(download_page(url))              
+        for cat in agenda['ret']['publicationCalendars']:
+            if this_week_start_dt <= cat['start'] <= this_week_end_dt:
+                item = {}
+                item['dataflow_key'] = cat['category_id']
+                item['reference_period'] = cat['end']
+                item['scheduled_date'] = cat['start']
+                yield(item) 
                    
 class BDF_Data(SeriesIterator):
     def __init__(self, dataset, url):
