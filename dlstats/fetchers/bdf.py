@@ -154,7 +154,7 @@ class BDF(Fetcher):
                 item['reference_period'] = cat['end']
                 item['scheduled_date'] = cat['start']
                 yield(item) 
-                   
+                           
 class BDF_Data(SeriesIterator):
     def __init__(self, dataset, url):
         super().__init__(dataset)
@@ -234,7 +234,7 @@ class BDF_Data(SeriesIterator):
         return series
     
     def clean_field(self, bson):   
-        bson=super().clean_field(bson)
+        bson = super().clean_field(bson)
         return bson
                         
     def _build_series(self, group, p_series, obs):
