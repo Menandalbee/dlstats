@@ -255,7 +255,6 @@ class BDF_Data(SeriesIterator):
         
         values=list()
         for v in obs:
-            period = v['TIME_PERIOD']
             Obs_attribute_keys = [k for k in v.keys() if k not in ['TIME_PERIOD', 'OBS_VALUE']]            
             
             for key in Obs_attribute_keys:
@@ -267,6 +266,7 @@ class BDF_Data(SeriesIterator):
                     self.dataset.codelists[key][v.get(key)] = v.get(key)
 
         for v in obs: 
+            period = v['TIME_PERIOD']
             a=OrderedDict()
             for k in self.dataset.attribute_keys:
                 try:

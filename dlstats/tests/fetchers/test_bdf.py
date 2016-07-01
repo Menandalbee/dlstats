@@ -108,7 +108,7 @@ DATA_AME = {
             'period': '1960',
             'period_o': '1960',
             'attributes': {
-                'obs-value': "A",
+                'obs-status': "A",
                 'obs-conf': "F"
             },
         },
@@ -118,7 +118,7 @@ DATA_AME = {
             'period': '2017',
             'period_o': '2017',
             'attributes': {
-                'obs-value': "A",
+                'obs-status': "A",
                 'obs-conf': "F"
             },
         },
@@ -220,7 +220,7 @@ DATA_DET = {
             'period': '1999',
             'period_o': '1999',
             'attributes': {
-                'obs-value': "A",
+                'obs-status': "A",
                 'obs-conf': "F"
             },
         },
@@ -230,7 +230,7 @@ DATA_DET = {
             'period': '2014',
             'period_o': '2014',
             'attributes': {
-                'obs-value': "A",
+                'obs-status': "A",
                 'obs-conf': "F"
             },
         },
