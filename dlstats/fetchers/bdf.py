@@ -62,6 +62,25 @@ def make_dataset(anchors):
     dataset['metadata']['url'] = 'http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&exportType=sdmx' % (dataset['dataset_code'])
     dataset['metadata']['doc_href'] = None
     return [dataset]
+
+def get_dataflow_key_from_info_page(url):
+    page = download_page(url)
+    html = etree.HTML(page)
+    tr = html.find('.//div[@class="tabs content"]')
+    key = tr.get('data-dsname')
+    print(key)
+    return key
+   
+def get_update(tr, last_update):
+    anchors = list(tr[1])[0]
+    update = dict()
+    update['id'] = tr.get('data-id')
+    update['url'] = "webstat.banque-france.fr/en/export.do?node=UPDATES%s&exportType=sdmx" % (update['id'])
+    url_infopage = "http://webstat.banque-france.fr/en/browseExplanation.do?node=UPDATES%s" % (update['id'])
+    update['dataflow_key'] = get_dataflow_key_from_info_page(url_infopage)
+    update['last_update'] = last_update
+    update['name'] = anchors.text
+    return update
     
 def make_xls_url(dataset_code):
     url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_%s" % (dataset_code)
@@ -141,24 +160,41 @@ class BDF(Fetcher):
         return dataset.update_database()
     
     def load_datasets_update(self):
-        #TODO: dataset_filter
         for d in self._parse_agenda():
-            dataset = Datasets(provider_name=self.provider_name,
-                               dataset_code=d['dataset_code'],
-                               name=d['name'],
-                               last_update=d['last_update'],
-                               fetcher=self)
-            url = d['url']
-            dataset.series.data_iterator = BDF_Data(dataset, url)
-            dataset.update_database()
+            if d['dataset_code'] in self.datasets_filter: 
+                dataset = Datasets(provider_name=self.provider_name,
+                                   dataset_code=d['dataset_code'],
+                                   name=d['name'],
+                                   last_update=d['last_update'],
+                                   fetcher=self)
+                url = d['url']
+                dataset.series.data_iterator = BDF_Data(dataset, url)
+                dataset.update_database() 
     
     def _parse_agenda(self):
-        #TODO: parser the page of updates
-        update = [{'dataset_code': 'ECOFI',
-                  'name': "ECONFIN:Economy and Finance",
-                  'url': "http://webstat.banque-france.fr/en/export.do?node=UPDATES34381&exportType=sdmx",
-                  'last_update': datetime(2016, 6, 29)}]
-        return update 
+        url = "http://webstat.banque-france.fr/en/updates.do"
+        page_agenda = download_page(url)
+        html = etree.HTML(page_agenda)
+        trs = html.findall('.//tr[@data-url]')
+        for tr in trs:
+            td = list(tr)[0]
+            date1 = td.text.split('-')
+            date2 = datetime.datetime.now().date()
+            last_update = datetime.date(int(date1[2]), int(date1[1]), int(date1[0]))
+            if last_update >= date2-datetime.timedelta(days=1):
+                yield(get_update(tr, last_update))
+            else:
+                break
+    
+    def get_calendar(self):
+        yield {'action': 'update-fetcher',
+               'kwargs': {'provider_name': self.provider_name},
+               'period_type': 'cron',
+               "period_kwargs": { 
+                   "day": '*', 
+                   "timezone": 'Europe/Paris'
+                }
+              } 
                            
 class BDF_Data(SeriesIterator):
     def __init__(self, dataset, url):

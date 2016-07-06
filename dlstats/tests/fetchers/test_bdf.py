@@ -299,3 +299,19 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertProvider()
         self.assertDataset(dataset_code)        
         self.assertSeries(dataset_code)
+		
+    @httpretty.activate
+    def test_parse_agenda(self):        
+        model = [{'dataflow_key': 'EXR',
+          'id': '34742',
+          'name': 'Economic concepts – Exchange rate (39)',
+          'url': "webstat.banque-france.fr/en/export.do?node=UPDATES34742&exportType=sdmx",
+          'last_update': datetime.date(2016, 7, 5)}]
+
+        url = "http://webstat.banque-france.fr/en/updates.do"
+        self.register_url(url, get_filepath('Updates_page.html'), content_type='text/html')
+        
+        url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=UPDATES34661"
+        self.register_url(url, get_filepath('Update_EXR.html'), content_type='text/html') 
+		
+        self.assertEqual(list(self.fetcher._parse_agenda())[-1], model[-1])
