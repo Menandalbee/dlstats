@@ -192,6 +192,8 @@ class BDF(Fetcher):
                'period_type': 'cron',
                "period_kwargs": { 
                    "day": '*', 
+                   "hour": 24, 
+                   "minute": '*', 
                    "timezone": 'Europe/Paris'
                 }
               } 
