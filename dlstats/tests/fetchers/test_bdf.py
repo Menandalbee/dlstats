@@ -11,6 +11,7 @@ from bdf import BDF as Fetcher
 
 import httpretty
 import unittest
+from freezegun import freeze_time
 
 from dlstats.tests.base import RESOURCES_DIR as BASE_RESOURCES_DIR
 from dlstats.tests.fetchers.base import BaseFetcherTestCase
@@ -301,6 +302,7 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertSeries(dataset_code)
 		
     @httpretty.activate
+	@freeze_time("2016-07-06")
     def test_parse_agenda(self):        
         model = [{'dataflow_key': 'EXR',
           'id': '34742',

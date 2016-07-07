@@ -179,7 +179,7 @@ class BDF(Fetcher):
         for tr in trs:
             td = list(tr)[0]
             date1 = td.text.split('-')
-            date2 = datetime.datetime.now().date()
+            date2 = datetime.date.today()
             last_update = datetime.date(int(date1[2]), int(date1[1]), int(date1[0]))
             if last_update >= date2-datetime.timedelta(days=1):
                 yield(get_update(tr, last_update))
