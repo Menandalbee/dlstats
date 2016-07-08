@@ -68,14 +68,13 @@ def get_dataflow_key_from_info_page(url):
     html = etree.HTML(page)
     tr = html.find('.//div[@class="tabs content"]')
     key = tr.get('data-dsname')
-    print(key)
     return key
    
 def get_update(tr, last_update):
     anchors = list(tr[1])[0]
     update = dict()
     update['id'] = tr.get('data-id')
-    update['url'] = "webstat.banque-france.fr/en/export.do?node=UPDATES%s&exportType=sdmx" % (update['id'])
+    update['url'] = "http://webstat.banque-france.fr/en/export.do?node=UPDATES%s&exportType=sdmx" % (update['id'])
     url_infopage = "http://webstat.banque-france.fr/en/browseExplanation.do?node=UPDATES%s" % (update['id'])
     update['dataflow_key'] = get_dataflow_key_from_info_page(url_infopage)
     update['last_update'] = last_update
@@ -161,15 +160,17 @@ class BDF(Fetcher):
     
     def load_datasets_update(self):
         for d in self._parse_agenda():
-            if d['dataset_code'] in self.datasets_filter: 
+            if d['dataflow_key'] in self.datasets_filter:
                 dataset = Datasets(provider_name=self.provider_name,
-                                   dataset_code=d['dataset_code'],
+                                   dataset_code=d['dataflow_key'],
                                    name=d['name'],
                                    last_update=d['last_update'],
                                    fetcher=self)
-                url = d['url']
+                url = d['url']                
                 dataset.series.data_iterator = BDF_Data(dataset, url)
-                dataset.update_database() 
+                dataset.update_database()    
+                msg = "get update - provider[%s] - dataset[%s] - last-update-dataset[%s]"    
+                logger.info(msg % (self.provider_name, d['dataflow_key'], d['last_update']))                  
     
     def _parse_agenda(self):
         url = "http://webstat.banque-france.fr/en/updates.do"
@@ -179,10 +180,11 @@ class BDF(Fetcher):
         for tr in trs:
             td = list(tr)[0]
             date1 = td.text.split('-')
-            date2 = datetime.date.today()
-            last_update = datetime.date(int(date1[2]), int(date1[1]), int(date1[0]))
+            date2 = datetime.datetime.now()
+            last_update = datetime.datetime(int(date1[2]), int(date1[1]), int(date1[0]), 23, 59, 59)
             if last_update >= date2-datetime.timedelta(days=1):
-                yield(get_update(tr, last_update))
+                update = get_update(tr, last_update)      
+                yield(update)
             else:
                 break
     
@@ -192,8 +194,8 @@ class BDF(Fetcher):
                'period_type': 'cron',
                "period_kwargs": { 
                    "day": '*', 
-                   "hour": 24, 
-                   "minute": '*', 
+                   "hour": 0, 
+                   "minute": 1, 
                    "timezone": 'Europe/Paris'
                 }
               } 

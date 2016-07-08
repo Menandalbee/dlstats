@@ -6,6 +6,7 @@ Created on Mon May 23 16:42:04 2016
 """
 
 import os
+import datetime
 
 from bdf import BDF as Fetcher
 
@@ -136,103 +137,11 @@ DATA_AME = {
     }
 }
 
-DATA_ECOFI = {
-    "filepath": get_filepath("ECOFI_update.xml"),
-    "DSD": {
-        "filepath": None,
-        "dataset_code": "DET",
-        "dsd_id": "DET",
-        "is_completed": True,
-        "categories_key": "DET",
-        "categories_parents": ["concept"],
-        "categories_root": [],
-        "concept_keys": [
-            'freq',
-            'ref-area',
-            'indicator',
-            'counterpart_area',
-            'data_domain',
-            'obs-status'
-        ],
-        "codelist_keys": [
-            'freq',
-            'ref-area',
-            'indicator',
-            'counterpart_area',
-            'data_domain',
-            'obs-status'
-        ],
-        "codelist_count": {   
-            "concept": 6,
-        },                
-        "dimension_keys": [
-            'data-domain',
-            'ref-area',
-            'indicator',
-            'counterpart-area',
-            'freq'
-        ],
-        "dimension_count": {
-            "data-domain": 8,
-            'ref-area': 644,
-            'indicator': 38,
-            'counterpart-area': 644,
-            'freq': 8
-        },
-        "attribute_keys": [
-            'obs-status',
-        ],
-        "attribute_count": {
-            'obs-status': 3,
-        }
-    },
-    "series_accept": 4,
-    "series_reject_frequency": 0,
-    "series_reject_empty": 0,
-    "series_all_values": 2033,
-    "series_key_first": "ECOFI.SPI.BY.FID_PA._Z.D",
-    "series_key_last": "ECOFI.SPI.BY.FPE_IX._Z.D",
-    "series_sample": {
-        'provider_name': 'BDF',
-        'dataset_code': 'ECOFI',
-        'key': 'ECOFI.SPI.BY.FID_PA._Z.D',
-        'name': "3-month EURIBOR (annual interest rate)",
-        'frequency': 'D',
-        'last_update': None,
-        'first_value': {
-            'value': '0.055',
-            'ordinal': 16468,
-            'period': '2015-02-02',
-            'attributes': {
-                'obs-status': "A",
-            },
-        },
-        'last_value': {
-            'value': '-0.283',
-            'ordinal': 16979,
-            'period': '2016-06-27',
-            'attributes': {
-                'obs-status': "A",
-            },
-        },
-        'dimensions': {
-            'data-domain': 'spi',
-            'ref-area': 'by',
-            'indicator': 'fid-pa',
-            'counterpart-area': 'z',
-            'freq': 'd'
-
-        },
-        'attributes': None
-    }
-}
-
 
 class FetcherTestCase(BaseFetcherTestCase): 
     FETCHER_KLASS = Fetcher
     DATASETS = {
-        'AME':DATA_AME,
-        'DET':DATA_DET
+        'AME':DATA_AME
     }
     DATASET_FIRST = 'AME'
     DATASET_LAST = 'TCN1'
@@ -275,14 +184,21 @@ class FetcherTestCase(BaseFetcherTestCase):
         self._load_files_dataset_ame()
         self.assertLoadDatasetsFirst([dataset_code])
         
-    @httpretty.activate     
+    @httpretty.activate 
+    @freeze_time("2016-07-06 00:00:01")    
     @unittest.skipUnless('FULL_TEST' in os.environ, "Skip - no full test")
     def test_load_datasets_update(self):
         dataset_code = 'ECOFI'
-        self._load_files()
+        
+        url = "http://webstat.banque-france.fr/en/updates.do"
+        self.register_url(url, get_filepath('Updates_page.html'), content_type='text/html')
+        
+        url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=UPDATES34381"
+        self.register_url(url, get_filepath('Update_ECOFI.html'), content_type='text/html') 
+        
         self._load_files_info_ecofi()
         self._load_files_dataset_ecofi_update()
-        self.assertLoadDatasetsUpdate([dataset_code])	
+        self.assertLoadDatasetsUpdate([dataset_code])		
 
     @httpretty.activate     
     def test_build_data_tree(self):
@@ -302,18 +218,18 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertSeries(dataset_code)
 		
     @httpretty.activate
-	@freeze_time("2016-07-06")
+    @freeze_time("2016-07-06")
     def test_parse_agenda(self):        
         model = [{'dataflow_key': 'EXR',
           'id': '34742',
           'name': 'Economic concepts – Exchange rate (39)',
-          'url': "webstat.banque-france.fr/en/export.do?node=UPDATES34742&exportType=sdmx",
-          'last_update': datetime.date(2016, 7, 5)}]
+          'url': "http://webstat.banque-france.fr/en/export.do?node=UPDATES34742&exportType=sdmx",
+          'last_update': datetime.datetime(2016, 7, 5, 23, 59, 59)}]
 
         url = "http://webstat.banque-france.fr/en/updates.do"
         self.register_url(url, get_filepath('Updates_page.html'), content_type='text/html')
         
-        url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=UPDATES34661"
+        url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=UPDATES34742"
         self.register_url(url, get_filepath('Update_EXR.html'), content_type='text/html') 
 		
         self.assertEqual(list(self.fetcher._parse_agenda())[-1], model[-1])
