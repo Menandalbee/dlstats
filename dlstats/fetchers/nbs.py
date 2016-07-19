@@ -21,6 +21,55 @@ from dlstats.fetchers._commons import Fetcher, Datasets, Providers, SeriesIterat
 INDEX_URL='http://webstat.banque-france.fr/en/concepts.do?node=DATASETS'
 logger = logging.getLogger(__name__)
 
+def parse_site():
+    url = INDEX_URL
+    payload = {'id': 'A02', 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
+    headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
+    resp = requests.post(url, data=payload, headers=headers).json()    
+    site_tree = []
+    for node in resp:
+        site_tree.append(make_category(node))
+    return site_tree
+    
+def make_category(node):
+    if node['isParent'] == False:
+        datasets = list()
+        dataset = make_dataset(node)
+        datasets.append(dataset)
+        
+        category = OrderedDict()
+        category['name'] = node['name']
+        category['category_code'] = re.sub(r'[^A-Z]+', r'', node['name'])
+        category['parent'] = 'National Accounts'
+        category['all_parents'] = ['National Accounts']
+        category['datasets'] = datasets
+    else:
+        url = INDEX_URL
+        payload = {'id': node['id'], 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
+        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
+        resp = requests.post(url, data=payload, headers=headers).json()    
+        for node in resp:
+            make_category(node)        
+    return category
+
+def make_dataset_code(name):
+    s = re.match(r'((.*)(\(.*\))|(.*))', name)
+    if s.group(2):
+        code = re.sub(r'[^A-Z]+', r'', s.group(1)) + s.group(3)
+    else:
+        code = re.sub(r'[^A-Z]+', r'', s.group(1))
+    return code
+    
+def make_dataset(node):
+    dataset = OrderedDict()
+    dataset['name'] = node['name']
+    dataset['dataset_code'] = make_dataset_code(node['name'])
+    dataset['last_update'] = None
+    dataset['metadata'] = {}
+    dataset['metadata']['url'] = None
+    dataset['metadata']['doc_href'] = None
+    return dataset
+    
 def get_events(fp):
     '''Build the iterator of events'''
     context = etree.iterparse(fp, events=['end'], tag=['database', 'record', 'data', 'root'], remove_blank_text=True)
@@ -33,7 +82,23 @@ def get_dates(periods, frequency):
     
 def clean_quarterly(period_quarterly):
     return re.sub(r'([1-4])Q (.*)', r'\2-Q\1', period_quarterly)
-    
+
+
+class NBS(Fetcher):
+    def __init__(self, **kwargs):
+        super().__init__(provider_name='NBS', version=2, **kwargs)
+        
+        self.provider = Providers(name=self.provider_name,
+                                  long_name='National Bureau of Statistics of China',
+                                  version=2,
+                                  region='China',
+                                  website='http://data.stats.gov.cn/',
+                                  fetcher=self)           
+        self.categories_filter = []
+        
+    def build_data_tree(self):
+        categories = parse_site()
+        return categories    
 
 class NBS_Data(SeriesIterator):
     def __init__(self, dataset, url):
@@ -126,7 +191,8 @@ class NBS_Data(SeriesIterator):
         bson = OrderedDict()  
         
         frequency = list(freq.keys())[0]
-        periodslist = [clean_quarterly(p) for p in periodslist if frequency == 'Q']        
+        if frequency == 'Q':
+            periodslist = [clean_quarterly(p) for p in periodslist]       
         unit = re.match(r'.*\((.*)\)', name_series).group(1)
         start_date, end_date = get_dates(periodslist, frequency)
         self.dataset.add_frequency(frequency)
