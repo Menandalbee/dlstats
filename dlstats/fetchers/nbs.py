@@ -16,59 +16,45 @@ import unicodedata
 from collections import defaultdict, OrderedDict
 
 from dlstats.utils import Downloader, get_ordinal_from_period, make_store_path, clean_datetime
-from dlstats.fetchers._commons import Fetcher, Datasets, Providers, SeriesIterator
+from dlstats.fetchers._commons import Fetcher, Datasets, Providers, Categories, SeriesIterator
 
-INDEX_URL='http://webstat.banque-france.fr/en/concepts.do?node=DATASETS'
+INDEX_URL="http://data.stats.gov.cn/english/easyquery.htm"
 logger = logging.getLogger(__name__)
 
-def parse_site():
-    url = INDEX_URL
-    payload = {'id': 'A02', 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
-    headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-    resp = requests.post(url, data=payload, headers=headers).json()    
-    site_tree = []
-    for node in resp:
-        site_tree.append(make_category(node))
-    return site_tree
+def download_page(url):
+    url = url.strip()
+    response = requests.get(url)
     
-def make_category(node):
-    if node['isParent'] == False:
-        datasets = list()
-        dataset = make_dataset(node)
-        datasets.append(dataset)
-        
-        category = OrderedDict()
-        category['name'] = node['name']
-        category['category_code'] = re.sub(r'[^A-Z]+', r'', node['name'])
-        category['parent'] = 'National Accounts'
-        category['all_parents'] = ['National Accounts']
-        category['datasets'] = datasets
-    else:
-        url = INDEX_URL
-        payload = {'id': node['id'], 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
-        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        resp = requests.post(url, data=payload, headers=headers).json()    
-        for node in resp:
-            make_category(node)        
-    return category
+    if not response.ok:
+        msg = "download url[%s] - status_code[%s] - reason[%s]" % (url, 
+                                                                   response.status_code, 
+                                                                   response.reason)
+        logger.error(msg)
+        response.raise_for_status()
 
-def make_dataset_code(name):
+    return response.content
+    
+def make_code(name):
     s = re.match(r'((.*)(\(.*\))|(.*))', name)
     if s.group(2):
         code = re.sub(r'[^A-Z]+', r'', s.group(1)) + s.group(3)
     else:
         code = re.sub(r'[^A-Z]+', r'', s.group(1))
     return code
-    
+
 def make_dataset(node):
-    dataset = OrderedDict()
-    dataset['name'] = node['name']
-    dataset['dataset_code'] = make_dataset_code(node['name'])
-    dataset['last_update'] = None
-    dataset['metadata'] = {}
-    dataset['metadata']['url'] = None
-    dataset['metadata']['doc_href'] = None
-    return dataset
+    datasets = list()
+    dataset = {
+        'name': node['name'],
+        'dataset_code': make_code(node['name']),
+        'last_update': None,
+        'metadata': {
+            'url': None,
+            'doc_href': None
+        }
+    }
+    datasets.append(dataset)
+    return datasets
     
 def get_events(fp):
     '''Build the iterator of events'''
@@ -97,7 +83,51 @@ class NBS(Fetcher):
         self.categories_filter = []
         
     def build_data_tree(self):
-        categories = parse_site()
+        url = INDEX_URL
+        categories = list()
+                
+        def make_category(node, parent_key):
+            if node['isParent'] == False:        
+                _category = {
+                    'name': node['name'],
+                    'category_code': make_code(node['name']),
+                    'parent': parent_key,
+                    'all_parents': [],
+                    'datasets': make_dataset(node)
+                }               
+                categories.append(_category)
+            else:
+                _category = {
+                    'name': node['name'],
+                    'category_code': make_code(node['name']),
+                    'parent': parent_key,
+                    'all_parents': [],
+                    'datasets': []
+                }
+                categories.append(_category)
+                
+                payload = {'id': node['id'], 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
+                headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
+                resp = requests.post(url, data=payload, headers=headers).json() 
+                for child_node in resp:
+                    make_category(child_node, make_code(node['name']))
+             
+        payload = {'id': 'A02', 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
+        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
+        resp = requests.post(url, data=payload, headers=headers).json()           
+        try:
+            for child_node in resp:
+                make_category(child_node, "NA")  
+        except Exception as err:
+            logger.error(err)
+            raise
+            
+        _categories = dict([(cat["category_code"], cat) for cat in categories])
+        
+        for c in categories:
+            parents = Categories.iter_parent(c, _categories)
+            c["all_parents"] = parents
+            
         return categories    
 
 class NBS_Data(SeriesIterator):
