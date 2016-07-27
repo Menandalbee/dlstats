@@ -35,11 +35,11 @@ def download_page(url):
     return response.content
     
 def make_code(name):
-    s = re.match(r'((.*)(\(.*\))|(.*))', name)
-    if s.group(2):
-        code = re.sub(r'[^A-Z]+', r'', s.group(1)) + s.group(3)
+    if "preceding year" in name or "1978" in name:
+        s = re.match(r'(.*)(\(.*\))', name)
+        code = re.sub(r'[^A-Z]+', r'', s.group(1)) + s.group(2) 
     else:
-        code = re.sub(r'[^A-Z]+', r'', s.group(1))
+        code = re.sub(r'[^A-Z\(\)]', r'', name)
     return code
 
 def make_dataset(node):
@@ -86,11 +86,12 @@ class NBS(Fetcher):
         url = INDEX_URL
         categories = list()
                 
-        def make_category(node, parent_key):
+        def make_category(node, parent_key, position):
             if node['isParent'] == False:        
                 _category = {
                     'name': node['name'],
                     'category_code': make_code(node['name']),
+					'position': position,
                     'parent': parent_key,
                     'all_parents': [],
                     'datasets': make_dataset(node)
@@ -100,6 +101,7 @@ class NBS(Fetcher):
                 _category = {
                     'name': node['name'],
                     'category_code': make_code(node['name']),
+					'position': position,
                     'parent': parent_key,
                     'all_parents': [],
                     'datasets': []
@@ -109,15 +111,17 @@ class NBS(Fetcher):
                 payload = {'id': node['id'], 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
                 headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
                 resp = requests.post(url, data=payload, headers=headers).json() 
+				position += 1
                 for child_node in resp:
                     make_category(child_node, make_code(node['name']))
              
         payload = {'id': 'A02', 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
         headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        resp = requests.post(url, data=payload, headers=headers).json()           
+        resp = requests.post(url, data=payload, headers=headers).json() 
+		position = 1
         try:
             for child_node in resp:
-                make_category(child_node, "NA")  
+                make_category(child_node, "NA", position)  
         except Exception as err:
             logger.error(err)
             raise

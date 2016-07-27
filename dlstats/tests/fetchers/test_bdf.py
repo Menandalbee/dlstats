@@ -36,9 +36,9 @@ DATA_AME = {
         "dataset_code": "AME",
         "dsd_id": "AME",
         "is_completed": True,
-        "categories_key": "AME",
+        "categories_key": "concept.AME",
         "categories_parents": ["concept"],
-        "categories_root": [],
+        "categories_root": ["concept"],
         "concept_keys": [
             'freq',
             'ame-ref-area',

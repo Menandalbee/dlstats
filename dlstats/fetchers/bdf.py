@@ -40,6 +40,15 @@ def parse_site():
     html = etree.HTML(page)
     anchors = html.findall('.//div[@class="childrenNode leaf"]/h4/a')
     site_tree = []
+    _parent_category = {
+        'name': 'Concepts',
+        'category_code': "concept",
+        'position': 0,
+        'parent': None,
+        'all_parents': [],
+        'datasets': []
+    }   
+    site_tree.append(_parent_category)
     for a in anchors:
         site_tree.append(make_category(a))
     return site_tree
@@ -48,6 +57,7 @@ def make_category(anchors):
     category = OrderedDict()
     category['name'] = re.match('\((.*)\) (.*)', anchors.text).group(2)
     category['category_code'] = re.match('\((.*)\) (.*)', anchors.text).group(1)
+	category['position'] = 1
     category['parent'] = 'concept'
     category['all_parents'] = ['concept']
     category['datasets'] = make_dataset(anchors)
@@ -139,7 +149,7 @@ class BDF(Fetcher):
                                   region='France',
                                   website='http://webstat.banque-france.fr/',
                                   fetcher=self)           
-        self.categories_filter = ['AME', 'TCN1', 'DET']
+        self.categories_filter = ['concept']
         
     def build_data_tree(self):
         categories = parse_site()
