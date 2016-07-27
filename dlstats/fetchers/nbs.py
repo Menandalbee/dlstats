@@ -43,7 +43,6 @@ def make_code(name):
     return code
 
 def make_dataset(node):
-    datasets = list()
     dataset = {
         'name': node['name'],
         'dataset_code': make_code(node['name']),
@@ -53,7 +52,13 @@ def make_dataset(node):
             'doc_href': None
         }
     }
-    datasets.append(dataset)
+    
+    if len(dataset['dataset_code']) < 3:
+        dataset['dataset_code'] = _category_code
+    elif node['id'] == "A020501":
+        dataset['dataset_code'] = "NA.V(preceding year=100)"
+    elif node['id'] == "A020502":
+        dataset['dataset_code'] = "NA.V(1978=100)"
     return datasets
     
 def get_events(fp):
@@ -87,21 +92,24 @@ class NBS(Fetcher):
         categories = list()
                 
         def make_category(node, parent_key, position):
-            if node['isParent'] == False:        
+            _category_code = "%s.%s" % (parent_key, make_code(node['name']))
+            if node['isParent'] == False and position == 1:  
                 _category = {
                     'name': node['name'],
-                    'category_code': make_code(node['name']),
-					'position': position,
+                    'category_code': _category_code,
+                    'position': position,
                     'parent': parent_key,
                     'all_parents': [],
-                    'datasets': make_dataset(node)
-                }               
+                    'datasets': [make_dataset(node, _category_code)]
+                }                
                 categories.append(_category)
-            else:
+            elif node['isParent'] == False and position != 1:                
+                categories[-1]['datasets'].append(make_dataset(node, _category_code))               
+            else:          
                 _category = {
                     'name': node['name'],
-                    'category_code': make_code(node['name']),
-					'position': position,
+                    'category_code': _category_code,
+                    'position': position,
                     'parent': parent_key,
                     'all_parents': [],
                     'datasets': []
@@ -111,14 +119,24 @@ class NBS(Fetcher):
                 payload = {'id': node['id'], 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
                 headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
                 resp = requests.post(url, data=payload, headers=headers).json() 
-				position += 1
+                position += 1
                 for child_node in resp:
-                    make_category(child_node, make_code(node['name']))
-             
+                    make_category(child_node, _category['category_code'], position)                
+
+        _parent_category = {
+            'name': 'National Accounts',
+            'category_code': 'NA',
+            'position': 0,
+            'parent': None,
+            'all_parents': [],
+            'datasets': []
+        }
+        categories.append(_parent_category)
+        
         payload = {'id': 'A02', 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
         headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
         resp = requests.post(url, data=payload, headers=headers).json() 
-		position = 1
+        position = 1          
         try:
             for child_node in resp:
                 make_category(child_node, "NA", position)  
@@ -126,11 +144,11 @@ class NBS(Fetcher):
             logger.error(err)
             raise
             
-        _categories = dict([(cat["category_code"], cat) for cat in categories])
+        _categories = dict([(cat['category_code'], cat) for cat in categories])
         
         for c in categories:
             parents = Categories.iter_parent(c, _categories)
-            c["all_parents"] = parents
+            c['all_parents'] = parents
             
         return categories    
 
