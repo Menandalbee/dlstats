@@ -10,8 +10,9 @@ import requests
 import logging
 import re
 import traceback
-import datetime
+import json
 import unicodedata
+import urllib
 
 from collections import defaultdict, OrderedDict
 
@@ -42,13 +43,14 @@ def make_code(name):
         code = re.sub(r'[^A-Z\(\)]', r'', name)
     return code
 
-def make_dataset(node):
+def make_dataset(node, _category_code):
+    data = get_tableData(node)
     dataset = {
         'name': node['name'],
         'dataset_code': make_code(node['name']),
         'last_update': None,
         'metadata': {
-            'url': None,
+            'url': make_url(data),
             'doc_href': None
         }
     }
@@ -59,7 +61,59 @@ def make_dataset(node):
         dataset['dataset_code'] = "NA.V(preceding year=100)"
     elif node['id'] == "A020502":
         dataset['dataset_code'] = "NA.V(1978=100)"
-    return datasets
+    return dataset
+
+def get_tableData(node):
+    payload = {
+        'm': "QueryData", 
+        'dbcode': "hgnd",
+        'rowcode': "zb",
+        'colcode': "sj",
+        'wds': "[]",
+        'dfwds': '[{"wdcode":"zb","valuecode":%s}]' % (node['id']),
+        'k1': "1470125034252"
+    }
+    requests.get("http://data.stats.gov.cn/english/easyquery.htm", params=payload)
+    req = requests.get("http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgnd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22}]&k1=1470126105760")
+    data_20 = json.loads(req.text)    
+    return data_20
+
+def make_url(data): 
+    year = [str(i) for i in range(1995, 2015)]
+    year.append("Indicators")
+    year.reverse()
+    str_year = "--".join(year)
+    th = '%s:"%s' % ('"data"', str_year) 
+    d = list()
+    d.append(th)
+    
+    wdnodes = data['returndata']['wdnodes'][0]['nodes']
+    datanodes = data['returndata']['datanodes'] 
+    nbIndi = len(wdnodes)
+    for i in range(nbIndi):
+        doc = list()
+        indicator = "%s(%s)" % (wdnodes[i]['name'], wdnodes[i]['unit'])
+        doc.append(indicator)
+        for j in range(20*i, 20*(i+1)):
+            if len(datanodes[j]['data']['strdata']) != 0:
+                doc.append(datanodes[j]['data']['strdata'])
+            else:
+                doc.append("empty")
+        str_doc = "--".join(doc)
+        d.append(str_doc)   
+    str_data = '{%s##",%s}' % ("##".join(d), '"title":"Annual","dataSource":"National+Bureau+of+Statistics","dbcode":"Database：Annual","rowcode":"zb","colcode":"sj","explain":"Note:"')
+   
+    payload = {
+        'ifNormal': "true",
+        'type': "xml",
+        'pdfWidth': "1200",
+        'otherwds': '[{"wdname":"Year","wdcode":"sj","valuecode":"LATEST20"}]',
+        'tableData': str_data,
+        'exps': '[]'
+    }
+    params = urllib.parse.urlencode(payload) 
+    url = "http://data.stats.gov.cn/english/download.htm?%s" % (params)
+    return url
     
 def get_events(fp):
     '''Build the iterator of events'''
