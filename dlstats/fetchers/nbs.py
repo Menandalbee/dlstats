@@ -34,6 +34,13 @@ def download_page(url):
         response.raise_for_status()
 
     return response.content
+
+def parse_site():
+    url = INDEX_URL  
+    page = download_page(url)
+    html = etree.HTML(page)
+    li = html.findall('.//ul[@id="treeZhiBiao_3_ul"]/li')
+    return li
     
 def make_code(name):
     if "preceding year" in name or "1978" in name:
@@ -44,22 +51,21 @@ def make_code(name):
     return code
 
 def make_dataset(node, _category_code):
-    data = get_tableData(node)
     dataset = {
         'name': node['name'],
         'dataset_code': make_code(node['name']),
         'last_update': None,
         'metadata': {
-            'url': make_url(data),
+            'url': None,
             'doc_href': None
         }
     }
     
     if len(dataset['dataset_code']) < 3:
         dataset['dataset_code'] = _category_code
-    elif node['id'] == "A020501":
+    elif dataset['dataset_code'] == "V(preceding year=100)":
         dataset['dataset_code'] = "NA.V(preceding year=100)"
-    elif node['id'] == "A020502":
+    elif dataset['dataset_code'] == "V(1978=100)":
         dataset['dataset_code'] = "NA.V(1978=100)"
     return dataset
 
@@ -75,7 +81,7 @@ def get_tableData(node):
     }
     requests.get("http://data.stats.gov.cn/english/easyquery.htm", params=payload)
     req = requests.get("http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgnd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22}]&k1=1470126105760")
-    data_20 = json.loads(req.text)    
+    data_20 = req.json()   
     return data_20
 
 def make_url(data): 
@@ -142,26 +148,26 @@ class NBS(Fetcher):
         self.categories_filter = []
         
     def build_data_tree(self):
-        url = INDEX_URL
         categories = list()
                 
-        def make_category(node, parent_key, position):
-            _category_code = "%s.%s" % (parent_key, make_code(node['name']))
-            if node['isParent'] == False and position == 1:  
+        def make_category(li, parent_key, position):
+            name = li.xpath('./a')[0].get('title')
+            _category_code = "%s.%s" % (parent_key, make_code(name))
+            if not li.xpath('./ul') and position == 1:  
                 _category = {
-                    'name': node['name'],
+                    'name': name,
                     'category_code': _category_code,
                     'position': position,
                     'parent': parent_key,
                     'all_parents': [],
-                    'datasets': [make_dataset(node, _category_code)]
+                    'datasets': [make_dataset(name, _category_code)]
                 }                
                 categories.append(_category)
-            elif node['isParent'] == False and position != 1:                
-                categories[-1]['datasets'].append(make_dataset(node, _category_code))               
+            elif not li.xpath('./ul') and position != 1:                
+                categories[-1]['datasets'].append(make_dataset(name, _category_code))               
             else:          
                 _category = {
-                    'name': node['name'],
+                    'name': name,
                     'category_code': _category_code,
                     'position': position,
                     'parent': parent_key,
@@ -170,12 +176,9 @@ class NBS(Fetcher):
                 }
                 categories.append(_category)
                 
-                payload = {'id': node['id'], 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
-                headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-                resp = requests.post(url, data=payload, headers=headers).json() 
                 position += 1
-                for child_node in resp:
-                    make_category(child_node, _category['category_code'], position)                
+                for child_li in li.xpath('./ul/li'):
+                    make_category(child_li, _category['category_code'], position)                
 
         _parent_category = {
             'name': 'National Accounts',
@@ -186,14 +189,11 @@ class NBS(Fetcher):
             'datasets': []
         }
         categories.append(_parent_category)
-        
-        payload = {'id': 'A02', 'dbcode': 'hgnd', 'wdcode': 'zb', 'm': 'getTree'}
-        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        resp = requests.post(url, data=payload, headers=headers).json() 
+
         position = 1          
         try:
-            for child_node in resp:
-                make_category(child_node, "NA", position)  
+            for li in parse_site():
+                make_category(li, "NA", position)  
         except Exception as err:
             logger.error(err)
             raise
