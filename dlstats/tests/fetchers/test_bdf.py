@@ -138,7 +138,10 @@ DATA_AME = {
 }
 
 
-class FetcherTestCase(BaseFetcherTestCase): 
+class FetcherTestCase(BaseFetcherTestCase):
+
+    # nosetests -s -v dlstats.tests.fetchers.test_bdf:FetcherTestCase
+	
     FETCHER_KLASS = Fetcher
     DATASETS = {
         'AME':DATA_AME
@@ -188,6 +191,7 @@ class FetcherTestCase(BaseFetcherTestCase):
     @freeze_time("2016-07-06 00:00:01")    
     @unittest.skipUnless('FULL_TEST' in os.environ, "Skip - no full test")
     def test_load_datasets_update(self):
+	
         dataset_code = 'ECOFI'
         
         url = "http://webstat.banque-france.fr/en/updates.do"
@@ -207,7 +211,10 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertDataTree(dataset_code)
     
     @httpretty.activate     
-    def test_upsert_dataset_ame(self):        
+    def test_upsert_dataset_ame(self):
+
+		# nosetests -s -v dlstats.tests.fetchers.test_nbs:FetcherTestCase.test_upsert_dataset_ame
+		
         dataset_code = "AME"
         self._load_files()
         self._load_files_info_ame()
