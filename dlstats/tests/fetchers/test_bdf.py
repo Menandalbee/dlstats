@@ -8,7 +8,7 @@ Created on Mon May 23 16:42:04 2016
 import os
 import datetime
 
-from bdf import BDF as Fetcher
+from dlstats.fetchers.bdf import BDF as Fetcher
 
 import httpretty
 import unittest

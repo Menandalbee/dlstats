@@ -11,11 +11,11 @@ import logging
 import xlrd
 import re
 import traceback
-from datetime import datetime
+import datetime
 
 from collections import defaultdict, OrderedDict
 
-from dlstats.utils import Downloader, get_ordinal_from_period, make_store_path
+from dlstats.utils import Downloader, get_ordinal_from_period, make_store_path, slugify
 from dlstats.fetchers._commons import Fetcher, Datasets, Providers, SeriesIterator
 
 INDEX_URL='http://webstat.banque-france.fr/en/concepts.do?node=DATASETS'
@@ -56,8 +56,8 @@ def parse_site():
 def make_category(anchors):
     category = OrderedDict()
     category['name'] = re.match('\((.*)\) (.*)', anchors.text).group(2)
-    category['category_code'] = re.match('\((.*)\) (.*)', anchors.text).group(1)
-	category['position'] = 1
+    category['category_code'] = "concept." + re.match('\((.*)\) (.*)', anchors.text).group(1)
+    category['position'] = 1
     category['parent'] = 'concept'
     category['all_parents'] = ['concept']
     category['datasets'] = make_dataset(anchors)
@@ -67,7 +67,7 @@ def make_dataset(anchors):
     dataset = OrderedDict()
     dataset['name'] = re.match('\((.*)\) (.*)', anchors.text).group(2)
     dataset['dataset_code'] = re.match('\((.*)\) (.*)', anchors.text).group(1)
-    dataset['last_update'] = datetime(2016, 6, 20)
+    dataset['last_update'] = datetime.datetime.today()
     dataset['metadata'] = {}
     dataset['metadata']['url'] = 'http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&exportType=sdmx' % (dataset['dataset_code'])
     dataset['metadata']['doc_href'] = None
@@ -101,7 +101,13 @@ def make_xls_url(dataset_code):
     req = re.match(r".*\(\'(.*)\',\'(.*)\',\'(.*)\'\).*", v)
     url = "http://webstat.banque-france.fr/en/exportDsd.do?datasetId=%s&datasetName=%s&keyFamily=%s&node=DATASETS_%s" % (req.group(1), req.group(2), req.group(3), dataset_code)
     return url
-    
+
+def slugify_dict(dic):
+    new_dic = OrderedDict()
+    for key, value in dic.items():
+        new_dic[slugify(key, save_order=True)] = value
+    return new_dic
+   
 def get_sheet_cells(fp, name):
     index = fp.sheet_by_name(name)
     keys = index.col_values(0, 3)
@@ -113,10 +119,13 @@ def get_concepts(fp):
     return get_sheet_cells(fp, 'index')
 
 def get_codelists(fp, dimension_keys):
-    codelists = dict((k, {}) for k in dimension_keys) 
+    codelists = dict() 
     for k in dimension_keys:
-        codelists[k] = get_sheet_cells(fp, k)
-    return codelists
+        codelists[k] = get_sheet_cells(fp, k) 
+    for key in codelists.keys():
+        codelists[key] = slugify_dict(codelists[key])
+    new_codelists = slugify_dict(codelists)
+    return new_codelists
        
 def get_ns(fp):
     '''Get the namespace like urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=BDF:BDF_AME1(1.0)'''
@@ -133,9 +142,9 @@ def get_events(fp, ns):
     return context
     
 def get_dates(dim, obs):
-    frequency = dim['FREQ']
-    start_date = get_ordinal_from_period(obs[0]['TIME_PERIOD'], freq=frequency)
-    end_date = get_ordinal_from_period(obs[-1]['TIME_PERIOD'], freq=frequency)
+    frequency = dim['freq']
+    start_date = get_ordinal_from_period(obs[0]['time-period'], freq=frequency)
+    end_date = get_ordinal_from_period(obs[-1]['time-period'], freq=frequency)
     return frequency, start_date, end_date
     
 
@@ -155,7 +164,7 @@ class BDF(Fetcher):
         categories = parse_site()
         return categories
     
-    def upsert_dataset(self,dataset_code):
+    def upsert_dataset(self, dataset_code):
         self.get_selected_datasets()        
         self.dataset_settings = self.selected_datasets[dataset_code]
         dataset = Datasets(provider_name=self.provider_name,
@@ -218,10 +227,12 @@ class BDF_Data(SeriesIterator):
         self.release_date = self.dataset.last_update
         
         xls_handle = xlrd.open_workbook(self._load_xls())
-        self.dataset.concepts = get_concepts(xls_handle)
-        self.dataset.dimension_keys = get_concepts(xls_handle).keys()
+
+        self.dimension_original = get_concepts(xls_handle)
+        self.dataset.concepts = slugify_dict(self.dimension_original)
+        self.dataset.dimension_keys = slugify_dict(self.dimension_original)
         self.dataset.attribute_keys=[]
-        self.dataset.codelists = get_codelists(xls_handle, self.dataset.dimension_keys)
+        self.dataset.codelists = get_codelists(xls_handle, self.dimension_original.keys())
         
         self.filepath = self._load_datas()       
         self.nsString = get_ns(self.filepath)
@@ -265,15 +276,15 @@ class BDF_Data(SeriesIterator):
             self.nbIteration += 1
             for event,elem in self.context:
                 if elem.tag == self.nsString + 'Group':
-                    group = OrderedDict((k,v) for k,v in elem.attrib.items())
+                    group = slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))
                     obs = list()
                     self.nbseries += 1
                     elem.clear()
                 elif elem.tag == self.nsString + 'Obs':
-                    obs.append(OrderedDict((k,v) for k,v in elem.attrib.items()))
+                    obs.append(slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items())))                    
                     elem.clear()
                 elif elem.tag == self.nsString + 'Series':
-                    p_series = OrderedDict((k,v) for k,v in elem.attrib.items())               
+                    p_series = slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))                                   
                     elem.clear()
                     break          
             if self.nbIteration == self.nbseries:
@@ -299,13 +310,13 @@ class BDF_Data(SeriesIterator):
         dim = group.copy()
         dim.update(p_series) 
         attrib = defaultdict(list)
-
+        
         frequency, start_date, end_date = get_dates(dim, obs)
         self.dataset.add_frequency(frequency)
         
         values=list()
         for v in obs:
-            Obs_attribute_keys = [k for k in v.keys() if k not in ['TIME_PERIOD', 'OBS_VALUE']]            
+            Obs_attribute_keys = [k for k in v.keys() if k not in ['time-period', 'obs-value']]            
             
             for key in Obs_attribute_keys:
                 if key not in self.dataset.attribute_keys:
@@ -316,7 +327,7 @@ class BDF_Data(SeriesIterator):
                     self.dataset.codelists[key][v.get(key)] = v.get(key)
 
         for v in obs: 
-            period = v['TIME_PERIOD']
+            period = v['time-period']
             a=OrderedDict()
             for k in self.dataset.attribute_keys:
                 try:
@@ -328,20 +339,20 @@ class BDF_Data(SeriesIterator):
                     'release_date': self.release_date,
                     'ordinal': get_ordinal_from_period(period, freq=frequency),
                     'period': period,
-                    'value': v['OBS_VALUE']
+                    'value': v['obs-value']
                     }
             values.append(value)
 
         for key in self.dataset.dimension_keys:
             dimensions[key] = self.dimension_list.update_entry(key,
                                                                 dim[key], 
-                                                                self.dataset.codelists[key][dim[key]])           
+                                                                self.dataset.codelists[key][slugify(dim[key])])                                                                           
         for key in self.dataset.attribute_keys:
             attributes[key] = self.attribute_list.update_entry(key,
                                                                 str(attrib[key]),
                                                                 attrib[key])
             
-        series_name = dim['TITLE_COMPL']
+        series_name = dim['title-compl']
         series_key =  self.fix_series_keys(dimensions)
     
         bson['values'] = values                
