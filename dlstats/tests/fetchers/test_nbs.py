@@ -9,7 +9,7 @@ import os
 import httpretty
 import unittest
 
-from nbs import NBS as Fetcher
+from dlstats.fetchers.nbs import NBS as Fetcher
 
 from dlstats.tests.base import RESOURCES_DIR as BASE_RESOURCES_DIR
 from dlstats.tests.fetchers.base import BaseFetcherTestCase

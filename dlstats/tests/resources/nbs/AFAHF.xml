@@ -1,0 +1,2407 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<root>
+	<database>Database：Annual</database>
+	<data>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">894,213,473.19</field>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">693,198,000.00</field>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">488,929,999.91</field>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">393,566,962.50</field>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">285,787,422.99</field>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">264,482,669.86</field>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">246,773,827.00</field>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Total Inputs, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">370,625,314.01</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">287,862,000.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">202,338,262.21</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">162,757,603.90</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">119,482,762.05</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">111,522,265.08</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">99,357,988.11</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use, Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">123,205,603.45</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">92,202,499.58</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">68,771,565.47</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">61,717,615.20</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">46,368,195.59</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">40,355,500.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">39,641,456.43</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Agriculture, Forestry, Animal Husbandry and Fishery(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">59,549.21</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">562,009.48</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">330,853.56</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">1,699,349.54</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">980,424.62</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">439,177.30</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">512,276.06</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Mining(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">94,118,243.54</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">71,246,063.52</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">47,022,865.06</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">27,383,558.36</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">15,717,459.67</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">15,108,300.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">16,368,977.33</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Foods, Beverage and Tobacco(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">397,114.61</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">362,264.72</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">271,598.96</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">336,761.59</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">213,489.74</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">797,955.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">706,277.28</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Textile, Wearing Apparel and Leather Products(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">669,336.19</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">2,004,176.69</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">1,469,214.68</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">1,857,791.73</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">1,614,620.88</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">818,887.40</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">1,043,260.08</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Manufacture(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">8,920,335.71</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">7,092,896.40</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">4,673,773.97</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">4,339,453.05</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">3,310,202.54</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">3,065,830.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">1,805,192.51</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Production and Supply of Electric Power, Heat Power and Water(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">14,499,087.94</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">4,900,755.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">3,961,123.98</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">4,188,809.70</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">2,814,691.71</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">3,703,100.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">2,088,501.38</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Coking, Gas and Processing of Petroleum(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">75,796,652.03</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">54,421,113.82</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">37,291,505.94</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">25,982,159.97</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">19,248,702.06</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">24,747,300.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">18,257,171.51</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Chemical Industry(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">289,937.83</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">987,155.90</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">692,876.99</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">1,179,405.46</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">900,993.81</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">509,764.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">627,725.35</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Nonmetallic Mineral Products(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">429,625.37</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">2,363,358.52</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">1,458,964.19</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">1,425,315.86</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">1,162,704.42</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">723,665.80</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">768,793.07</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture and Processing of Metals and Metal Products(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">7,309,381.93</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">6,761,072.14</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">5,310,450.21</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">4,530,911.91</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">3,964,841.28</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">4,241,720.20</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">3,947,123.37</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Manufacture of Machinery and Equipment(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">81,428.09</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">172,743.70</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">113,271.45</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">746,537.65</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">497,113.21</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">569,970.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">489,537.81</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Construction(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">11,724,430.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">15,487,695.54</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">9,707,947.25</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">9,132,506.08</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">6,152,180.20</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">3,689,724.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">2,938,150.38</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Transport, Storage, Post, Information Transmission, Computer Services and Software(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">13,979,197.71</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">11,376,971.37</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">8,517,007.89</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">8,615,858.14</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">7,957,969.72</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">5,026,066.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">4,474,911.54</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Wholesale and Retail Trades, Hotels and Catering Services(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">320,135.16</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">1,170,581.78</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">818,680.59</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">1,003,741.11</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">1,194,940.62</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">1,405,699.60</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">1,084,031.26</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Real Estate, Leasing and Business Services(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">11,048,752.17</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">5,514,421.04</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">4,063,621.63</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">4,143,830.81</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">4,513,873.14</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">1,522,460.00</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">1,157,123.47</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Financial Intermediation(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">7,776,503.05</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">11,236,220.80</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">7,862,940.41</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">4,473,997.74</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">2,870,358.86</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">4,797,145.78</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">3,447,479.28</field>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Intermediate Use for Agriculture, Forestry, Animal Husbandry and Fishery, by Other Services(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">523,588,159.18</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">405,336,000.00</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">286,591,737.69</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">230,809,358.60</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">166,304,660.93</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">152,960,404.78</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">147,415,838.89</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Value-added of Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">22,581,542.18</field>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">18,924,174.39</field>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">14,297,447.67</field>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">11,945,295.20</field>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">7,649,132.10</field>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">5,968,377.22</field>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">5,847,862.40</field>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Depreciation of Fixed Assets, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">529,963,185.76</field>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">385,628,325.61</field>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">271,816,270.02</field>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">208,972,657.30</field>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">133,159,686.50</field>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">134,431,208.14</field>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">129,786,622.47</field>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Compensation of Employees, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">-28,956,568.77</field>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">783,500.00</field>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">478,020.00</field>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">1,209,199.22</field>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">5,446,504.27</field>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">4,150,515.69</field>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">4,329,970.10</field>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Net Taxes on Production, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">8,682,206.88</field>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2004</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2003</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2002</field>
+			<field name="Data">20,049,338.08</field>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2001</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">2000</field>
+			<field name="Data">8,410,303.73</field>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1999</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1998</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1997</field>
+			<field name="Data">7,451,383.93</field>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1996</field>
+			<field name="Data"/>
+		</record>
+		<record>
+			<field name="Index">Operating Surplus, Agriculture, Forestry, Animal Husbandry(10000 yuan)</field>
+			<field name="Time">1995</field>
+			<field name="Data"/>
+		</record>
+	</data>
+</root>

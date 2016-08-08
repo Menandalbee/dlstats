@@ -10,14 +10,13 @@ import requests
 import logging
 import re
 import traceback
-import json
 import unicodedata
 import urllib
 
-from collections import defaultdict, OrderedDict
+from collections import OrderedDict
 
-from dlstats.utils import Downloader, get_ordinal_from_period, make_store_path, clean_datetime
-from dlstats.fetchers._commons import Fetcher, Datasets, Providers, Categories, SeriesIterator
+from dlstats.utils import Downloader, get_ordinal_from_period, clean_datetime
+from dlstats.fetchers._commons import Fetcher, Datasets, Providers, SeriesIterator
 
 INDEX_URL="http://data.stats.gov.cn/english/easyquery.htm"
 logger = logging.getLogger(__name__)
@@ -1491,6 +1490,19 @@ class NBS(Fetcher):
         
     def build_data_tree(self):
         return CATEGORIES    
+    
+    def upsert_dataset(self,dataset_code):
+        self.get_selected_datasets()        
+        self.dataset_settings = self.selected_datasets[dataset_code]
+        dataset = Datasets(provider_name=self.provider_name,
+                           dataset_code=dataset_code,
+                           name=self.dataset_settings["name"],
+                           last_update=clean_datetime(),
+                           fetcher=self)
+                           
+        url = self.dataset_settings['metadata']['url']
+        dataset.series.data_iterator = NBS_Data(dataset,url)        
+        return dataset.update_database()
 
 class NBS_Data(SeriesIterator):
     def __init__(self, dataset, url):
