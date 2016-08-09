@@ -20,8 +20,7 @@ from dlstats.tests.fetchers.base import BaseFetcherTestCase
 
 BDF_HTML_PAGES = [
     ("http://webstat.banque-france.fr/en/concepts.do?node=DATASETS", "WebstatBDF.html"),
-    ("http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_AME", "AME_page_info.html"),
-    ("http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_ECOFI", "ECOFI_page_info.html")
+    ("http://webstat.banque-france.fr/en/browseExplanation.do?node=DATASETS_AME", "AME_page_info.html")
 ]
 
 RESOURCES_DIR = os.path.abspath(os.path.join(BASE_RESOURCES_DIR, "bdf"))
