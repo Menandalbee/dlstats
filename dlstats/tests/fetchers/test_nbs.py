@@ -23,8 +23,8 @@ DATA_GDP = {
     "filepath": get_filepath("GDP.xml"),
     "DSD": {
         "filepath": None,
-        "dataset_code": "AFAHF",
-        "dsd_id": "AFAHF",
+        "dataset_code": "GDP",
+        "dsd_id": "GDP",
         "is_completed": True,
         "categories_key": "NA.GDP",
         "categories_parents": ['NA'],
@@ -85,6 +85,72 @@ DATA_GDP = {
     }    
 }
 
+DATA_CFAB_CD = {
+    "filepath": None,
+    "DSD": {
+        "filepath": None,
+        "dataset_code": "CFAB(CD)",
+        "dsd_id": "GDP",
+        "is_completed": True,
+        "categories_key": "NA.BPA.B(CD)",
+        "categories_parents": ['NA', "NA.BPA"],
+        "categories_root": ['NA'],
+        "concept_keys": [
+            'freq',
+            'unit'
+        ],
+        "codelist_keys": [
+            'freq',
+            'unit'
+        ],
+        "codelist_count": {   
+            'concept': 2,
+        },                
+        "dimension_keys": [
+            'freq',
+            'unit'
+        ],
+        "dimension_count": {
+            'freq': 1,
+            'unit': 1
+
+        },
+        "attribute_keys": None,
+        "attribute_count": None
+    },
+    "series_accept": 40,
+    "series_reject_frequency": 0,
+    "series_reject_empty": 0,
+    "series_all_values": 800,
+    "series_key_first": "1",
+    "series_key_last": "40",
+    "series_sample": {
+        'provider_name': 'NBS',
+        'dataset_code': 'CFAB(CD)',
+        'key': '1',
+        'name': "Capital and Finance Account Balance(Credit-Debit)(USD 10000)",
+        'frequency': 'A',
+        'last_update': None,
+        'first_value': {
+            'value': '3,867,500.00',
+            'ordinal': 25,
+            'period': '1995',
+            'attributes': None
+        },
+        'last_value': {
+            'value': '3,823,967.82',
+            'ordinal': 44,
+            'period': '2014',
+            'attributes': None
+        },
+        'dimensions': {
+            'unit': 'USD 10000',
+            'freq': 'a'
+        },
+        'attributes': None
+    }    
+}
+
  
 
 class FetcherTestCase(BaseFetcherTestCase): 
@@ -93,7 +159,8 @@ class FetcherTestCase(BaseFetcherTestCase):
     
     FETCHER_KLASS = Fetcher
     DATASETS = {
-        'GDP':DATA_GDP,
+        'GDP': DATA_GDP,
+        'CFAB(CD)': DATA_CFAB_CD
     }
     DATASET_FIRST = 'AFAHF'
     DATASET_LAST = 'WRTHCS'
@@ -128,4 +195,14 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertProvider()
         self.assertDataset(dataset_code)        
         self.assertSeries(dataset_code)
+
+    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')     
+    def test_upsert_dataset_cfab_cd(self): 
+        
+        # nosetests -s -v dlstats.tests.fetchers.test_nbs:FetcherTestCase.test_upsert_dataset_afahf
+        
+        dataset_code = "CFAB(CD)"
     
+        self.assertProvider()
+        self.assertDataset(dataset_code)        
+        self.assertSeries(dataset_code)   
