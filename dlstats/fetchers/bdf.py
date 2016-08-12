@@ -38,7 +38,7 @@ def parse_site():
     url = INDEX_URL
     page = download_page(url)
     html = etree.HTML(page)
-    anchors = html.findall('.//div[@class="childrenNode leaf"]/h4/a')
+    h4s = html.findall('.//div[@class="childrenNode leaf"]/h4') 
     site_tree = []
     _parent_category = {
         'name': 'Concepts',
@@ -49,28 +49,34 @@ def parse_site():
         'datasets': []
     }   
     site_tree.append(_parent_category)
-    for a in anchors:
-        site_tree.append(make_category(a))
+    for h4 in h4s:
+        s = h4.xpath("./a")[0].tail
+        n = int(s[2:-2])
+        anchors = h4.xpath("./a")[0]
+        site_tree.append(make_category(anchors, n))
     return site_tree
     
-def make_category(anchors):
+def make_category(anchors, n):
     category = OrderedDict()
     category['name'] = re.match('\((.*)\) (.*)', anchors.text).group(2)
     category['category_code'] = "concept." + re.match('\((.*)\) (.*)', anchors.text).group(1)
     category['position'] = 1
     category['parent'] = 'concept'
     category['all_parents'] = ['concept']
-    category['datasets'] = make_dataset(anchors)
+    category['datasets'] = make_dataset(anchors, n)
     return category
 
-def make_dataset(anchors):
+def make_dataset(anchors, n):
     dataset = OrderedDict()
     dataset['name'] = re.match('\((.*)\) (.*)', anchors.text).group(2)
     dataset['dataset_code'] = re.match('\((.*)\) (.*)', anchors.text).group(1)
     dataset['last_update'] = datetime.datetime.today()
     dataset['metadata'] = {}
-    dataset['metadata']['url'] = 'http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&exportType=sdmx' % (dataset['dataset_code'])
     dataset['metadata']['doc_href'] = None
+    if n <= 500:
+        dataset['metadata']['url'] = "http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&exportType=sdmx" % (dataset['dataset_code'])
+    else:
+        dataset['metadata']['url'] = None
     return [dataset]
 
 def get_dataflow_key_from_info_page(url):
@@ -126,7 +132,18 @@ def get_codelists(fp, dimension_keys):
         codelists[key] = slugify_dict(codelists[key])
     new_codelists = slugify_dict(codelists)
     return new_codelists
-       
+    
+def get_ref_area(dataset_code):
+    url = "http://webstat.banque-france.fr/en/ajax/browseAdvancedFilterAjax.do?node=DATASETS_%s" % (dataset_code) 
+    page = download_page(url)
+    html = etree.HTML(page)
+    option = html.findall('.//select[@id="adv_REF_AREA"]/option')
+    
+    area = list()
+    for o in option:
+        area.append(o.get('value'))
+    return area
+         
 def get_ns(fp):
     '''Get the namespace like urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=BDF:BDF_AME1(1.0)'''
     nsmap = list()
@@ -138,7 +155,7 @@ def get_ns(fp):
     
 def get_events(fp, ns):
     '''Build the iterator of events'''
-    context = etree.iterparse(fp, events=['end'], tag=(ns + 'Group', ns + 'Series', ns + 'Obs'), remove_blank_text=True)
+    context = etree.iterparse(fp, events=['end'], tag=(ns + 'Group', ns + 'Series', ns + 'Obs', ns+ 'DataSet'), remove_blank_text=True)
     return context
     
 def get_dates(dim, obs):
@@ -235,7 +252,7 @@ class BDF_Data(SeriesIterator):
         self.dataset.codelists = get_codelists(xls_handle, self.dimension_original.keys())
         
         self.filepath = self._load_datas()       
-        self.nsString = get_ns(self.filepath)
+        self.nsString = get_ns(self.filepath[0])
         self.file_handle = None
                 
         self.nbseries = 0
@@ -246,11 +263,22 @@ class BDF_Data(SeriesIterator):
                                dataset_code=self.dataset_code)
     
     def _load_datas(self):
-        download = Downloader(url=self.dataset_url, 
-                              filename=self.dataset_code,
-                              store_filepath=self.get_store_path(),
-                              use_existing_file=self.fetcher.use_existing_file)
-        filepath = download.get_filepath()
+        filepath = list()
+        if self.dataset_url:
+            download = Downloader(url=self.dataset_url, 
+                                  filename=self.dataset_code,
+                                  store_filepath=self.get_store_path(),
+                                  use_existing_file=self.fetcher.use_existing_file)
+            filepath.append(download.get_filepath())
+        else:
+            for code in get_ref_area(self.dataset_code):
+                url = "http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&REF_AREA=%s&exportType=sdmx" % (self.dataset_code, code)
+                name = self.dataset_code + "_%s" % (code)                
+                download = Downloader(url=url, 
+                                      filename=name,
+                                      store_filepath=self.get_store_path(),
+                                      use_existing_file=self.fetcher.use_existing_file)
+                filepath.append(download.get_filepath())
         return filepath 
     
     def _load_xls(self):
@@ -267,14 +295,25 @@ class BDF_Data(SeriesIterator):
         return key
                         
     def __next__(self):
-        '''try...except... for closing the file when an error occurs'''
+        '''try...except... for closing the file when an error occurs'''    
         try:
             if not self.file_handle:
-                self.file_handle = open(self.filepath, 'rb')
+                self.i = 0
+                self.file_handle = open(self.filepath[self.i], 'rb')
                 self.context = get_events(self.file_handle, self.nsString)
+                self.isFinished = False
     			
-            self.nbIteration += 1
             for event,elem in self.context:
+                if elem.tag == self.nsString + 'DataSet' and self.i == len(self.filepath)-1:
+                    self.file_handle.close()
+                    self.isFinished = True
+                    break
+                if elem.tag == self.nsString + 'DataSet' and self.i != len(self.filepath)-1:
+                    self.i += 1
+                    self.file_handle = open(self.filepath[self.i], 'rb')
+                    self.context = get_events(self.file_handle, self.nsString)
+                    series = self.__next__()
+                    break                    
                 if elem.tag == self.nsString + 'Group':
                     group = slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))
                     obs = list()
@@ -286,17 +325,15 @@ class BDF_Data(SeriesIterator):
                 elif elem.tag == self.nsString + 'Series':
                     p_series = slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))                                   
                     elem.clear()
-                    break          
-            if self.nbIteration == self.nbseries:
-                series = self.clean_field(self._build_series(group, p_series, obs))        
+                    series = self.clean_field(self._build_series(group, p_series, obs)) 
+                    break                 
         except:
             self.file_handle.close()
             traceback.print_exc()
             raise StopIteration()
-        
-        if self.nbIteration != self.nbseries:
-            self.file_handle.close()
-            raise StopIteration()    
+            
+        if self.isFinished == True:
+            raise StopIteration()                   
         return series
     
     def clean_field(self, bson):   

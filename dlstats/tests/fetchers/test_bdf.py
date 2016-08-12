@@ -107,7 +107,6 @@ DATA_AME = {
             'value': '1.08',
             'ordinal': -10,
             'period': '1960',
-            'period_o': '1960',
             'attributes': {
                 'obs-status': "A",
                 'obs-conf': "F"
@@ -117,7 +116,6 @@ DATA_AME = {
             'value': '37.49',
             'ordinal': 47,
             'period': '2017',
-            'period_o': '2017',
             'attributes': {
                 'obs-status': "A",
                 'obs-conf': "F"
@@ -136,6 +134,122 @@ DATA_AME = {
     }
 }
 
+DATA_SEC = {
+    "filepath": None,
+    "DSD": {
+        "filepath": None,
+        "dataset_code": "SEC",
+        "dsd_id": "SEC",
+        "is_completed": True,
+        "categories_key": "concept.SEC",
+        "categories_parents": ["concept"],
+        "categories_root": ["concept"],
+        "concept_keys": [
+            'freq',
+            'ref-area',
+            'sec-issuing-sector',
+            'sec-item',
+            'sec-valuation',
+            'data-type-sec',
+            'currency',
+            'series_denom',
+            'sec_suffix',
+            'obs-status',
+            'obs-conf'
+        ],
+        "codelist_keys": [
+            'freq',
+            'ref-area',
+            'sec-issuing-sector',
+            'sec-item',
+            'sec-valuation',
+            'data-type-sec',
+            'currency',
+            'series_denom',
+            'sec_suffix',
+            'obs-status',
+            'obs-conf'
+        ],
+        "codelist_count": {   
+            "concept": 11,
+        },                
+        "dimension_keys": [
+            'freq',
+            'ref-area',
+            'sec-issuing-sector',
+            'sec-item',
+            'sec-valuation',
+            'data-type-sec',
+            'currency',
+            'series-denom',
+            'sec-suffix'
+        ],
+        "dimension_count": {
+            'freq': 8,
+            'ref-area': 644,
+            'sec-issuing-sector': 29,
+            'sec-item': 22,
+            'sec-valuation': 4,
+            'data-type-sec': 16,
+            'currency': 315,
+            'series-denom': 19,
+            'sec-suffix': 2
+        },
+        "attribute_keys": [
+            'obs-status',
+            'obs-conf'
+        ],
+        "attribute_count": {
+            'obs-status': 7,
+            'obs-conf':2
+        }
+    },
+    "series_accept": 1320,
+    "series_reject_frequency": 0,
+    "series_reject_empty": 0,
+    "series_all_values": 180212,
+    "series_key_first": "SEC.M.AT.1000.F33000.N.1.EUR.E.Z",
+    "series_key_last": "SEC.M.ES.1311.F33200.N.4.EUR.E.Z",
+    "series_sample": {
+        'provider_name': 'BDF',
+        'dataset_code': 'SEC',
+        'key': 'SEC.M.AT.1000.F33000.N.1.EUR.E.Z',
+        'name': "Outstanding amounts at the end of the period (stocks), Securities other than shares, excluding financial derivatives, Nominal value, Total economy issuing sector, Euro, denominated in Euro,Austria",
+        'frequency': 'M',
+        'last_update': None,
+        'first_value': {
+            'value': '246497.000',
+            'ordinal': 419,
+            'period': '2004-12',
+            'attributes': {
+                'obs-status': 'A',
+                'obs-conf': 'F'
+            },
+        },
+        'last_value': {
+            'value': '411276.000',
+            'ordinal': 556,
+            'period': '2016-05',
+            'attributes': {
+                'obs-status': 'A',
+                'obs-conf': 'F'
+            },
+        },
+        'dimensions': {
+            'freq': 'm',
+            'ref-area': 'at',
+            'sec-issuing-sector': '1000',
+            'sec-item': 'F33000',
+            'sec-valuation': 'N',
+            'data-type-sec': '1',
+            'currency': 'eur',
+            'series_denom': 'e',
+            'sec_suffix': 'z'
+        },
+        'attributes': None
+    }
+}
+
 
 class FetcherTestCase(BaseFetcherTestCase):
 
@@ -143,7 +257,8 @@ class FetcherTestCase(BaseFetcherTestCase):
 	
     FETCHER_KLASS = Fetcher
     DATASETS = {
-        'AME':DATA_AME
+        'AME': DATA_AME,
+        'SEC': DATA_SEC
     }
     DATASET_FIRST = 'AME'
     DATASET_LAST = 'TCN1'
@@ -222,7 +337,19 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertProvider()
         self.assertDataset(dataset_code)        
         self.assertSeries(dataset_code)
+
+    @unittest.skipUnless('FULL_TEST' in os.environ, "Skip - no full test")
+    def test_upsert_dataset_sec(self):
+        '''Test of a dataset with a large number of series'''
 		
+        # nosetests -s -v dlstats.tests.fetchers.test_nbs:FetcherTestCase.test_upsert_dataset_sec
+		 
+        dataset_code = "SEC"
+    
+        self.assertProvider()
+        self.assertDataset(dataset_code)        
+        self.assertSeries(dataset_code)
+        
     @httpretty.activate
     @freeze_time("2016-07-06")
     def test_parse_agenda(self):        
