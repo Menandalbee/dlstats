@@ -43,24 +43,26 @@ def parse_site():
     _parent_category = {
         'name': 'Concepts',
         'category_code': "concept",
-        'position': 0,
+        'position': 1,
         'parent': None,
         'all_parents': [],
         'datasets': []
     }   
     site_tree.append(_parent_category)
-    for h4 in h4s:
+    position = 1
+    for h4 in h4s: 
         s = h4.xpath("./a")[0].tail
         n = int(s[2:-2])
         anchors = h4.xpath("./a")[0]
-        site_tree.append(make_category(anchors, n))
+        site_tree.append(make_category(anchors, n, position))
+        position += 1
     return site_tree
     
-def make_category(anchors, n):
+def make_category(anchors, n, position):
     category = OrderedDict()
     category['name'] = re.match('\((.*)\) (.*)', anchors.text).group(2)
     category['category_code'] = "concept." + re.match('\((.*)\) (.*)', anchors.text).group(1)
-    category['position'] = 1
+    category['position'] = position
     category['parent'] = 'concept'
     category['all_parents'] = ['concept']
     category['datasets'] = make_dataset(anchors, n)
