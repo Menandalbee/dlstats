@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<root>
+	<database>Database：Annual</database>
+	<data>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data">644,791.1</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data">590,422.4</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">539,116.5</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data">484,753.2</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">411,265.2</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data">348,498.5</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data">321,500.5</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">270,844.0</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data">219,028.5</field>
+		</record>
+		<record>
+			<field name="Index">Gross National Income(100 million yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">185,998.9</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data">643,974.0</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data">595,244.4</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">540,367.4</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data">489,300.6</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">413,030.3</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data">349,081.4</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data">319,515.5</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">270,232.3</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data">219,438.5</field>
+		</record>
+		<record>
+			<field name="Index">Gross Domestic Product(100 million yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">187,318.9</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data">58,343.5</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data">55,329.1</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">50,902.3</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data">46,163.1</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">39,362.6</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data">34,161.8</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data">32,753.2</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">27,788.0</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data">23,317.0</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Primary Industry(100 million yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">21,806.7</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data">277,571.8</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data">261,956.1</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">244,643.3</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data">227,038.8</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">191,629.8</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data">160,171.7</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data">149,956.6</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">126,633.6</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data">104,361.8</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Secondary Industry(100 million yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">88,084.4</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data">308,058.6</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data">277,959.3</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">244,821.9</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data">216,098.6</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">182,038.0</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data">154,747.9</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data">136,805.8</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">115,810.7</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data">91,759.7</field>
+		</record>
+		<record>
+			<field name="Index">Value-added of the Tertiary Industry(100 million yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">77,427.8</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2014</field>
+			<field name="Data">47,203</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2013</field>
+			<field name="Data">43,852</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2012</field>
+			<field name="Data">40,007</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2011</field>
+			<field name="Data">36,403</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2010</field>
+			<field name="Data">30,876</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2009</field>
+			<field name="Data">26,222</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2008</field>
+			<field name="Data">24,121</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2007</field>
+			<field name="Data">20,505</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2006</field>
+			<field name="Data">16,738</field>
+		</record>
+		<record>
+			<field name="Index">Per Capita GDP(yuan)</field>
+			<field name="Time">2005</field>
+			<field name="Data">14,368</field>
+		</record>
+	</data>
+</root>

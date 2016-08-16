@@ -171,7 +171,13 @@ class FetcherTestCase(BaseFetcherTestCase):
         filepath = get_filepath('GDP.xml')
         self.assertTrue(os.path.exists(filepath))
         self.register_url(url, filepath, content_type='text/html')
-                                      
+
+    def _load_dataset_gdp_update(self):
+        url = "http://data.stats.gov.cn/english/download.htm?ifNormal=true&type=xml&pdfWidth=1071&otherwds=%5B%7B%22wdname%22%3A%22Year%22%2C%22wdcode%22%3A%22sj%22%2C%22valuecode%22%3A%22LATEST10%22%7D%5D&tableData=%7B%22data%22%3A%22Indicators--2014--2013--2012--2011--2010--2009--2008--2007--2006--2005%23%23Gross+National+Income%28100+million+yuan%29--644%2C791.1--590%2C422.4--539%2C116.5--484%2C753.2--411%2C265.2--348%2C498.5--321%2C500.5--270%2C844.0--219%2C028.5--185%2C998.9%23%23Gross+Domestic+Product%28100+million+yuan%29--643%2C974.0--595%2C244.4--540%2C367.4--489%2C300.6--413%2C030.3--349%2C081.4--319%2C515.5--270%2C232.3--219%2C438.5--187%2C318.9%23%23Value-added+of+the+Primary+Industry%28100+million+yuan%29--58%2C343.5--55%2C329.1--50%2C902.3--46%2C163.1--39%2C362.6--34%2C161.8--32%2C753.2--27%2C788.0--23%2C317.0--21%2C806.7%23%23Value-added+of+the+Secondary+Industry%28100+million+yuan%29--277%2C571.8--261%2C956.1--244%2C643.3--227%2C038.8--191%2C629.8--160%2C171.7--149%2C956.6--126%2C633.6--104%2C361.8--88%2C084.4%23%23Value-added+of+the+Tertiary+Industry%28100+million+yuan%29--308%2C058.6--277%2C959.3--244%2C821.9--216%2C098.6--182%2C038.0--154%2C747.9--136%2C805.8--115%2C810.7--91%2C759.7--77%2C427.8%23%23Per+Capita+GDP%28yuan%29--47%2C203--43%2C852--40%2C007--36%2C403--30%2C876--26%2C222--24%2C121--20%2C505--16%2C738--14%2C368%23%23%22%2C%22title%22%3A%22Annual%22%2C%22dataSource%22%3A%22National+Bureau+of+Statistics%22%2C%22dbcode%22%3A%22Database%EF%BC%9AAnnual%22%2C%22rowcode%22%3A%22zb%22%2C%22colcode%22%3A%22sj%22%2C%22explain%22%3A%22Note%3A%22%7D&exps=%5B%7B%22dt%22%3A%221.%22%2C%22dd%22%3A%22Since+1980%2C+the+difference+between+the+Gross+Domestic+Product+and+the+Gross+National+Income+%28formerly%2C+the+Gross+National+Product%29+is+the+net+factor+income+from+the+rest+of+the+world.%22%7D%2C%7B%22dt%22%3A%222.%22%2C%22dd%22%3A%22The+classification+by+the+three+strata+of+industry+is+based+on+the+%E2%80%9CRegulation+on+the+Classification+by+Three+Strata+of+Industry%E2%80%9D+made+by+the+National+Bureau+of+Statistics+in+2012.+The+primary+industry+refers+to+agriculture%2C+forestry%2C+animal+husbandry+and+fishery+industries+%28except+support+services+to+agriculture%2C+forestry%2C+animal+husbandry+and+fishery+industries%29.+The+secondary+industry+refers+to+mining+%28except+auxiliary+activities+of+mining%29%2C+manufacturing+%28except+repairs+for+metal+products%2C+machinery+and+equipment%29%2C+production+and+supply+of+electricity%2C+steam%2C+gas+and+water%2C+and+construction.+The+tertiary+industry+refers+to+all+other+industries+not+included+in+primary+or+secondary+industry.%22%7D%2C%7B%22dt%22%3A%223.%22%2C%22dd%22%3A%22According+to+China%E2%80%99s+regulations+on+the+GDP+revisions+and+international+practice%2C+systematic+revisions+are+made+on+the+GDP+figures+for+2012+and+earlier+years+with+the+revised+2013+GDP+data+and+other+historical+data.+The+revisions+made+include+three+areas%3A+the+first+is+the+revision+of+the+GDP+figures+for+2012+and+earlier+years+following+the+revisions+of+the+National+Industrial+Classification+of+Economic+Activities+and+the+Classification+by+Three+Strata+of+Industry%3B+the+second+is+the+revision+of+the+GDP+figures+for+2009-2012+with+the+data+from+the+third+economic+census+available%3B+and+the+third+is+the+revision+of+the+value-added+of+financial+intermediation+for+2008+and+earlier+years+due+to+the+methodological+changes+in+calculating+the+value-added+of+financial+intermediation.%22%7D%5D"
+        filepath = get_filepath("GDP_update.xml")
+        self.assertTrue(os.path.exists(filepath))
+        self.register_url(url, filepath, content_type='text/html')
+    
     @httpretty.activate
     @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')
     def test_load_datasets_first(self):
@@ -179,7 +185,14 @@ class FetcherTestCase(BaseFetcherTestCase):
         dataset_code = "GDP"
         self.assertLoadDatasetsFirst([dataset_code])
 
-    @httpretty.activate     
+    @httpretty.activate
+    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')
+    def test_load_datasets_update(self):
+        self._load_dataset_gdp_update()
+        dataset_code = "GDP"
+        self.assertLoadDatasetsFirst([dataset_code])        
+    
+     
     def test_build_data_tree(self):
         dataset_code = "GDP"
         self.assertDataTree(dataset_code)
@@ -198,8 +211,9 @@ class FetcherTestCase(BaseFetcherTestCase):
 
     @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')     
     def test_upsert_dataset_cfab_cd(self): 
+        '''Test of a dataset with a large url''' 
         
-        # nosetests -s -v dlstats.tests.fetchers.test_nbs:FetcherTestCase.test_upsert_dataset_afahf
+        # nosetests -s -v dlstats.tests.fetchers.test_nbs:FetcherTestCase.test_upsert_dataset_cfab_cd
         
         dataset_code = "CFAB(CD)"
     
