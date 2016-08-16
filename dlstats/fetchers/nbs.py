@@ -28,7 +28,7 @@ CATEGORIES = [
         'datasets': [],
         'name': 'National Accounts',
         'parent': None,
-        'position': 0
+        'position': 1
     },
     {
         'all_parents': ['NA'],
@@ -74,14 +74,14 @@ CATEGORIES = [
         ],
         'name': 'Indices of Gross Domestic Product',
         'parent': 'NA',
-        'position': 1
+        'position': 2
     },
     {
         'all_parents': ['NA'],
-        'category_code': 'NA.CGDP',
+        'category_code': 'NA.CGDPTSI',
         'datasets': [
             {
-                'dataset_code': 'CGDP',
+                'dataset_code': 'CGDPTSI',
                 'last_update': None,
                 'metadata': {
                     'doc_href': None, 
@@ -92,14 +92,14 @@ CATEGORIES = [
         ],
         'name': 'Composition of GDP by the three strata of industry',
         'parent': 'NA',
-        'position': 1
+        'position': 3
     },
     {
         'all_parents': ['NA'],
-        'category_code': 'NA.V',
+        'category_code': 'NA.VI',
         'datasets': [
             {
-                'dataset_code': 'NA.V',
+                'dataset_code': 'NA.VI',
                 'last_update': None,
                 'metadata': {
                     'doc_href': None, 
@@ -110,14 +110,14 @@ CATEGORIES = [
         ],
         'name': 'Value-added by industries',
         'parent': 'NA',
-        'position': 1
+        'position': 4
     },
     {
         'all_parents': ['NA'],
-        'category_code': 'NA.V',
+        'category_code': 'NA.VII',
         'datasets': [
             {
-                'dataset_code': 'NA.V(preceding year=100)',
+                'dataset_code': 'NA.VII(preceding year=100)',
                 'last_update': None,
                 'metadata': {
                     'doc_href': None, 
@@ -126,7 +126,7 @@ CATEGORIES = [
                 'name': 'Value-added index by industries (preceding year=100)'
             },
             {
-                'dataset_code': 'NA.V(1978=100)',
+                'dataset_code': 'NA.VII(1978=100)',
                 'last_update': None,
                 'metadata': {
                     'doc_href': None, 
@@ -137,14 +137,14 @@ CATEGORIES = [
         ],
         'name': 'Value-added index by industries',
         'parent': 'NA',
-        'position': 1
+        'position': 5
     },
     {
         'all_parents': ['NA'],
-        'category_code': 'NA.CGDP',
+        'category_code': 'NA.CGDPI',
         'datasets': [
             {
-                'dataset_code': 'CGDP',
+                'dataset_code': 'CGDPI',
                 'last_update': None,
                 'metadata': {
                     'doc_href': None, 
@@ -155,7 +155,7 @@ CATEGORIES = [
         ],
         'name': 'Composition of GDP by industries',
         'parent': 'NA',
-        'position': 1
+        'position': 6
     },
     {
         'all_parents': ['NA'],
@@ -175,7 +175,7 @@ CATEGORIES = [
         'name': 'Share of the Contributions of the Three Strata of _Industry  to the '
           'Increase of the GDP',
           'parent': 'NA',
-          'position': 1
+          'position': 7
     },
     {
         'all_parents': ['NA'],
@@ -194,7 +194,7 @@ CATEGORIES = [
         ],
         'name': 'Contribution of the Three Strata of Industry to GDP _Growth',
         'parent': 'NA',
-        'position': 1
+        'position': 8
     },
     {
         'all_parents': ['NA'],
@@ -212,7 +212,7 @@ CATEGORIES = [
         ],
         'name': 'Gross Domestic Product by Expenditure Approach',
         'parent': 'NA',
-        'position': 1
+        'position': 9
     },
     {
         'all_parents': ['NA'],
@@ -232,7 +232,7 @@ CATEGORIES = [
         'name': 'Contribution Share and Contribution of the Three _Components of GDP '
         'to the Growth of GDP',
         'parent': 'NA',
-        'position': 1
+        'position': 10
     },
     {
         'all_parents': ['NA'],
@@ -250,7 +250,7 @@ CATEGORIES = [
         ],
         'name': 'Household Consumption Expenditure',
         'parent': 'NA',
-        'position': 1
+        'position': 11
     },
     {
         'all_parents': ['NA'],
@@ -258,7 +258,7 @@ CATEGORIES = [
         'datasets': [],
         'name': 'Input-Output Table',
         'parent': 'NA',
-        'position': 1
+        'position': 12
     },
     {
         'all_parents': ['NA', 'NA.IOT'],
@@ -433,7 +433,7 @@ CATEGORIES = [
         ],
         'name': 'Intermediate Use Part',
         'parent': 'NA.IOT',
-        'position': 2
+        'position': 1
     },
     {
         'all_parents': ['NA', 'NA.IOT'],
@@ -737,7 +737,7 @@ CATEGORIES = [
         ],
         'name': 'Direct Input Coefficients of Input-Output',
         'parent': 'NA',
-        'position': 1
+        'position': 13
     },
     {
         'all_parents': ['NA'],
@@ -915,7 +915,7 @@ CATEGORIES = [
         ],
         'name': 'Total Input Coefficients of Input-Output',
         'parent': 'NA',
-        'position': 1
+        'position': 14
     },
     {
         'all_parents': ['NA'],
@@ -923,7 +923,7 @@ CATEGORIES = [
         'datasets': [],
         'name': 'Flow of Funds Accounts (Physical Transaction)',
         'parent': 'NA',
-        'position': 1
+        'position': 15
     },
     {
         'all_parents': ['NA', 'NA.FFA(PT)'],
@@ -948,7 +948,7 @@ CATEGORIES = [
         ],
         'name': 'Physical Transaction',
         'parent': 'NA.FFA(PT)',
-        'position': 2
+        'position': 1
     },
     {
        'all_parents': ['NA', 'NA.FFA(PT)'],
@@ -1002,7 +1002,7 @@ CATEGORIES = [
         ],
         'name': 'Financial Institutions',
         'parent': 'NA.FFA(PT)',
-        'position': 2
+        'position': 3
     },
     {
         'all_parents': ['NA', 'NA.FFA(PT)'],
@@ -1029,7 +1029,7 @@ CATEGORIES = [
         ],
         'name': 'General Governments',
         'parent': 'NA.FFA(PT)',
-        'position': 2
+        'position': 4
     },
     {
         'all_parents': ['NA', 'NA.FFA(PT)'],
@@ -1056,7 +1056,7 @@ CATEGORIES = [
         ],
         'name': 'Households',
         'parent': 'NA.FFA(PT)',
-        'position': 2
+        'position': 5
     },
     {
         'all_parents': ['NA', 'NA.FFA(PT)'],
@@ -1083,7 +1083,7 @@ CATEGORIES = [
         ],
         'name': 'All Domestic Sectors',
         'parent': 'NA.FFA(PT)',
-        'position': 2
+        'position': 6
     },
     {
         'all_parents': ['NA', 'NA.FFA(PT)'],
@@ -1110,7 +1110,7 @@ CATEGORIES = [
         ],
         'name': 'The Rest of the World',
         'parent': 'NA.FFA(PT)',
-        'position': 2    
+        'position': 7    
     },
     {
         'all_parents': ['NA'],
@@ -1118,7 +1118,7 @@ CATEGORIES = [
         'datasets': [],
         'name': 'Flow of Funds Accounts (Financial Transaction)',
         'parent': 'NA',
-        'position': 1
+        'position': 16
     },
     {
         'all_parents': ['NA', 'NA.FFA(FT)'],
@@ -1145,7 +1145,7 @@ CATEGORIES = [
         ],
         'name': 'Financial Transaction',
         'parent': 'NA.FFA(FT)',
-        'position': 2
+        'position': 1
     },
     {
         'all_parents': ['NA', 'NA.FFA(FT)'],
@@ -1199,7 +1199,7 @@ CATEGORIES = [
         ],
         'name': 'Financial Institutions',
         'parent': 'NA.FFA(FT)',
-        'position': 2
+        'position': 3
     },
     {
         'all_parents': ['NA', 'NA.FFA(FT)'],
@@ -1226,7 +1226,7 @@ CATEGORIES = [
         ],
         'name': 'General Governments',
         'parent': 'NA.FFA(FT)',
-        'position': 2
+        'position': 4
     },
     {
         'all_parents': ['NA', 'NA.FFA(FT)'],
@@ -1251,7 +1251,7 @@ CATEGORIES = [
         ],
         'name': 'Households',
         'parent': 'NA.FFA(FT)',
-        'position': 2
+        'position': 5
     },
     {
         'all_parents': ['NA', 'NA.FFA(FT)'],
@@ -1278,7 +1278,7 @@ CATEGORIES = [
         ],
         'name': 'All Domestic Sectors',
         'parent': 'NA.FFA(FT)',
-        'position': 2
+        'position': 6
     },
     {
         'all_parents': ['NA', 'NA.FFA(FT)'],
@@ -1305,7 +1305,7 @@ CATEGORIES = [
         ],
         'name': 'The Rest of the World',
         'parent': 'NA.FFA(FT)',
-        'position': 2
+        'position': 7
     },
     {
         'all_parents': ['NA'],
@@ -1313,7 +1313,7 @@ CATEGORIES = [
         'datasets': [],
         'name': 'Balance of Payments Account',
         'parent': 'NA',
-        'position': 1
+        'position': 17
     },
     {
         'all_parents': ['NA', 'NA.BPA'],
@@ -1358,7 +1358,7 @@ CATEGORIES = [
         ],
         'name': 'Balance(Credit-Debit)',
         'parent': 'NA.BPA',
-        'position': 2
+        'position': 1
     },
     {
         'all_parents': ['NA', 'NA.BPA'],
@@ -1448,7 +1448,7 @@ CATEGORIES = [
         ],
         'name': 'Debit',
         'parent': 'NA.BPA',
-        'position': 2
+        'position': 3
     }
 ]
 
@@ -1477,6 +1477,14 @@ def make_code(name):
     if "preceding year" in name or "1978" in name:
         s = re.match(r'(.*)(\(.*\))', name)
         code = re.sub(r'[^A-Z]+', r'', s.group(1)) + s.group(2) 
+    elif name == "Composition of GDP by the three strata of industry":
+        code = "CGDPTSI"
+    elif name == "Composition of GDP by industries":
+        code = "CGDPI"
+    elif name == "Value-added by industries":
+        code = "VI"
+    elif name == "Value-added index by industries":
+        code = "VII"
     else:
         code = re.sub(r'[^A-Z\(\)]', r'', name)
     return code
@@ -1577,9 +1585,59 @@ class NBS(Fetcher):
                                   website='http://data.stats.gov.cn/',
                                   fetcher=self)           
         self.categories_filter = []
+        self.check_data_tree = False
         
     def build_data_tree(self):
-        return CATEGORIES    
+        url = "http://data.stats.gov.cn/english/easyquery.htm"
+        
+        def check_data_tree(node, parent_key): 
+
+            if not parent_key:
+                _category_code = 'NA'
+            else:
+                _category_code = "%s.%s" % (parent_key, make_code(node['name']))            
+            
+            if node['isParent'] == False and parent_key == 'NA':                
+                old_category = [cat for cat in CATEGORIES if cat['category_code'] == _category_code]
+                if len(old_category) != 1 or len(old_category[0]['datasets']) != 1 or old_category[0]['datasets'][0]['name'] != node['name']:                   
+                    raise Exception("Data tree needs to be updated at %s" % (_category_code))
+            elif node['isParent'] == True:
+                payload = {
+                    'id': node['id'], 
+                    'dbcode': 'hgnd', 
+                    'wdcode': 'zb', 
+                    'm': 'getTree'
+                }
+                req = requests.post(url, data=payload).json()
+                
+                old_children = [cat['name'] for cat in CATEGORIES if cat['parent'] == _category_code]
+                new_children = [cat['name'] for cat in req]
+                
+                datasets = None
+                dataset_names = None
+                for cat in CATEGORIES:
+                    if cat['category_code'] == _category_code:
+                        datasets = cat['datasets']
+                        dataset_names = [d['name'] for d in datasets]
+                        break
+                                        
+                if new_children != old_children and new_children != dataset_names:
+                    raise Exception("Data tree needs to be updated at %s" % (_category_code))               
+                for node in req:
+                    check_data_tree(node, _category_code)
+         
+        node = {
+            'dbcode': 'hgnd',
+            'id': 'A02',
+            'isParent': True,
+            'name': 'National Accounts',
+            'pid': 'A',
+            'wdcode': 'zb'         
+        }
+        if self.check_data_tree == True:
+            check_data_tree(node, parent_key=None)
+
+        return CATEGORIES
     
     def upsert_dataset(self,dataset_code):
         self.get_selected_datasets()        
@@ -1593,7 +1651,7 @@ class NBS(Fetcher):
         url = self.dataset_settings['metadata']['url']
         dataset.series.data_iterator = NBS_Data(dataset,url)        
         return dataset.update_database()
-
+    
 class NBS_Data(SeriesIterator):
     def __init__(self, dataset, url):
         super().__init__(dataset)
@@ -1666,23 +1724,19 @@ class NBS_Data(SeriesIterator):
                 if elem.tag == 'root' and self.i == len(self.filepath)-1:
                     self.file_handle.close()                    
                     self.isFinished = True
-                    break
-                
+                    break                
                 if elem.tag == 'root' and self.i != len(self.filepath)-1:
                     self.i += 1
                     self.file_handle = open(self.filepath[self.i], 'rb')
                     self.context = get_events(self.file_handle)
                     series = self.__next__()
-                    break
-                                               
+                    break                                              
                 if elem.tag == 'data' and self.i == len(self.filepath)-1:
                     self.nbseries +=1
                     series = self.clean_field(self._build_series(self.name_series, self.periodslist, self.valueslist, self.freq))                     
-                    return series 
-                
+                    return series                
                 if elem.tag == 'data' and self.i != len(self.filepath)-1:
-                    continue
-                    
+                    continue                    
                 if elem.tag == 'database':
                     text = unicodedata.normalize('NFKC', elem.text)
                     if text == "Database:Annual":
