@@ -270,23 +270,23 @@ class FetcherTestCase(BaseFetcherTestCase):
             self.assertTrue(os.path.exists(filepath))
             self.register_url(url, filepath, content_type='text/html')
         
-    def _load_files_info_ame(self):
+    def _load_info_ame(self):
         url = "http://webstat.banque-france.fr/en/exportDsd.do?datasetId=167&datasetName=AME&keyFamily=BDF_AME1-Macro Economy&node=DATASETS_AME"     
         filepath = get_filepath('AME_info.xls')
         self.assertTrue(os.path.exists(filepath))
         self.register_url(url, filepath, content_type='text/html')
         
-    def _load_files_dataset_ame(self):
+    def _load_dataset_ame(self):
         url = "http://webstat.banque-france.fr/en/export.do?node=DATASETS_AME&exportType=sdmx"
         self.register_url(url, self.DATASETS['AME']['filepath'], content_type='text/html')
 		
-    def _load_files_info_ecofi(self):
+    def _load_info_ecofi(self):
         url = "http://webstat.banque-france.fr/en/exportDsd.do?datasetId=189&datasetName=ECOFI&keyFamily=ECOFIN_DSD-EcoFin&node=DATASETS_ECOFI"
         filepath = get_filepath('ECOFI_info.xls')
         self.assertTrue(os.path.exists(filepath)) 
         self.register_url(url, filepath, content_type='text/html')
 		
-    def _load_files_dataset_ecofi_update(self):
+    def _load_dataset_ecofi_update(self):
         url1 = "http://webstat.banque-france.fr/en/export.do?node=UPDATES34381&exportType=sdmx"
         filepath = get_filepath('ECOFI_update.xml')
         self.assertTrue(os.path.exists(filepath))
@@ -297,8 +297,8 @@ class FetcherTestCase(BaseFetcherTestCase):
     def test_load_datasets_first(self):
         dataset_code = 'AME'
         self._load_files()
-        self._load_files_info_ame()
-        self._load_files_dataset_ame()
+        self._load_info_ame()
+        self._load_dataset_ame()
         self.assertLoadDatasetsFirst([dataset_code])
         
     @httpretty.activate 
@@ -314,8 +314,8 @@ class FetcherTestCase(BaseFetcherTestCase):
         url = "http://webstat.banque-france.fr/en/browseExplanation.do?node=UPDATES34381"
         self.register_url(url, get_filepath('Update_ECOFI.html'), content_type='text/html') 
         
-        self._load_files_info_ecofi()
-        self._load_files_dataset_ecofi_update()
+        self._load_info_ecofi()
+        self._load_dataset_ecofi_update()
         self.assertLoadDatasetsUpdate([dataset_code])		
 
     @httpretty.activate     
@@ -331,8 +331,8 @@ class FetcherTestCase(BaseFetcherTestCase):
 		
         dataset_code = "AME"
         self._load_files()
-        self._load_files_info_ame()
-        self._load_files_dataset_ame()
+        self._load_info_ame()
+        self._load_dataset_ame()
     
         self.assertProvider()
         self.assertDataset(dataset_code)        
