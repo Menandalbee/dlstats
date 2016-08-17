@@ -28,7 +28,7 @@ DATA_GDP = {
         "is_completed": True,
         "categories_key": "NA.GDP",
         "categories_parents": ['NA'],
-        "categories_root": ['NA'],
+        "categories_root": ['NA', 'NA(Q)'],
         "concept_keys": [
             'freq',
             'unit'
@@ -179,20 +179,18 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.register_url(url, filepath, content_type='text/html')
     
     @httpretty.activate
-    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')
+#    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')
     def test_load_datasets_first(self):
         self._load_dataset_gdp()        
         dataset_code = "GDP"
         self.assertLoadDatasetsFirst([dataset_code])
 
-    @httpretty.activate
-    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')
+#    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')
     def test_load_datasets_update(self):
         self._load_dataset_gdp_update()
         dataset_code = "GDP"
         self.assertLoadDatasetsFirst([dataset_code])        
-    
-     
+        
     def test_build_data_tree(self):
         dataset_code = "GDP"
         self.assertDataTree(dataset_code)
@@ -209,10 +207,10 @@ class FetcherTestCase(BaseFetcherTestCase):
         self.assertDataset(dataset_code)        
         self.assertSeries(dataset_code)
 
-    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')     
+#    @unittest.skipUnless('FULL_TEST' in os.environ, 'Skip - no full test')     
     def test_upsert_dataset_cfab_cd(self): 
-        '''Test of a dataset with a large url''' 
         
+        # Test of a dataset with a large url      
         # nosetests -s -v dlstats.tests.fetchers.test_nbs:FetcherTestCase.test_upsert_dataset_cfab_cd
         
         dataset_code = "CFAB(CD)"

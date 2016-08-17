@@ -24,6 +24,90 @@ logger = logging.getLogger(__name__)
 CATEGORIES = [
     {
         'all_parents': [],
+        'category_code': 'NA(Q)',
+        'datasets': [],
+        'name': 'National Accounts',
+        'parent': None,
+        'position': 1
+    },    
+    {
+        'all_parents': ['NA(Q)'],
+        'category_code': 'NA(Q).GDP',
+        'datasets': [
+            {
+                'dataset_code': 'GDP(Q)',                
+                'last_update': None,
+                'metadata': {
+                    'id': 'A0101',
+                    'doc_href': None, 
+                    'url': "http://data.stats.gov.cn/english/download.htm?ifNormal=true&type=xml&pdfWidth=1796&otherwds=%5B%7B%22wdname%22%3A%22Quarter%22%2C%22wdcode%22%3A%22sj%22%2C%22valuecode%22%3A%22LATEST18%22%7D%5D&tableData=%7B%22data%22%3A%22Indicators--2Q+2016--1Q+2016--4Q+2015--3Q+2015--2Q+2015--1Q+2015--4Q+2014--3Q+2014--2Q+2014--1Q+2014--4Q+2013--3Q+2013--2Q+2013--1Q+2013--4Q+2012--3Q+2012--2Q+2012--1Q+2012%23%23Gross+Domestic+Product%2C+Current+Quarter%28100+million+yuan%29--179%2C926.6--160%2C710.2--192%2C250.8--175%2C616.0--167%2C651.2--149%2C987.7--181%2C182.5--165%2C711.9--156%2C461.3--140%2C618.3--168%2C625.1--152%2C905.3--143%2C967.0--129%2C747.0--152%2C468.9--138%2C622.2--131%2C682.5--117%2C593.9%23%23Gross+Domestic+Product%2C+Accumulated%28100+million+yuan%29--340%2C636.8--160%2C710.2--685%2C505.8--493%2C254.9--317%2C638.9--149%2C987.7--643%2C974.0--462%2C791.5--297%2C079.7--140%2C618.3--595%2C244.4--426%2C619.3--273%2C713.9--129%2C747.0--540%2C367.4--387%2C898.6--249%2C276.4--117%2C593.9%23%23Value-added+of+the+Primary+Industry%2C+Current+Quarter%28100+million+yuan%29--13%2C293.7--8%2C803.0--22%2C520.6--18%2C089.9--12%2C488.5--7%2C771.5--21%2C522.7--17%2C675.6--11%2C653.4--7%2C491.9--20%2C724.1--16%2C593.1--10%2C842.3--7%2C169.6--18%2C738.5--15%2C197.0--10%2C279.8--6%2C687.0%23%23Value-added+of+the+Primary+Industry%2C+Accumulated%28100+million+yuan%29--22%2C096.7--8%2C803.0--60%2C870.5--38%2C349.9--20%2C260.0--7%2C771.5--58%2C343.5--36%2C820.9--19%2C145.3--7%2C491.9--55%2C329.1--34%2C605.0--18%2C011.9--7%2C169.6--50%2C902.3--32%2C163.8--16%2C966.8--6%2C687.0%23%23Value-added+of+the+Secondary+Industry%2C+Current+Quarter%28100+million+yuan%29--73%2C268.2--60%2C982.2--78%2C100.2--71%2C292.3--70%2C773.8--60%2C394.0--77%2C784.5--71%2C024.7--69%2C541.1--59%2C221.5--74%2C212.5--66%2C750.0--65%2C131.3--55%2C862.3--68%2C634.5--62%2C257.3--61%2C434.1--52%2C317.4%23%23Value-added+of+the+Secondary+Industry%2C+Accumulated%28100+million+yuan%29--134%2C250.4--60%2C982.2--280%2C560.3--202%2C460.0--131%2C167.8--60%2C394.0--277%2C571.8--199%2C787.4--128%2C762.6--59%2C221.5--261%2C956.1--187%2C743.6--120%2C993.6--55%2C862.3--244%2C643.3--176%2C008.8--113%2C751.5--52%2C317.4%23%23Value-added+of+the+Tertiary+Industry%2C+Current+Quarter%28100+million+yuan%29--93%2C364.7--90%2C925.0--91%2C630.0--86%2C233.8--84%2C388.9--81%2C822.2--81%2C875.3--77%2C011.6--75%2C266.8--73%2C905.0--73%2C688.5--69%2C562.3--67%2C993.4--66%2C715.0--65%2C095.9--61%2C168.0--59%2C968.6--58%2C589.5%23%23Value-added+of+the+Tertiary+Industry%2C+Accumulated%28100+million+yuan%29--184%2C289.6--90%2C925.0--344%2C075.0--252%2C445.0--166%2C211.2--81%2C822.2--308%2C058.6--226%2C183.3--149%2C171.7--73%2C905.0--277%2C959.3--204%2C270.7--134%2C708.4--66%2C715.0--244%2C821.9--179%2C726.0--118%2C558.0--58%2C589.5%23%23Value-added+of+Agriculture%2C+Forestry%2C+Animal+Husbandry+and+Fishery+industries%2C+Current+Quarter%28100+million+yuan%29--13%2C779.4--9%2C153.0--23%2C264.1--18%2C648.0--12%2C926.1--8%2C080.6--22%2C164.4--18%2C185.1--12%2C039.6--7%2C776.7--21%2C299.9--17%2C049.6--11%2C196.5--7%2C427.6--19%2C243.9--15%2C602.8--10%2C600.3--6%2C921.7%23%23Value-added+of+Agriculture%2C+Forestry%2C+Animal+Husbandry+and+Fishery+industries%2C+Accumulated%28100+million+yuan%29--22%2C932.4--9%2C153.0--62%2C918.7--39%2C654.6--21%2C006.7--8%2C080.6--60%2C165.7--38%2C001.3--19%2C816.2--7%2C776.7--56%2C973.6--35%2C673.7--18%2C624.1--7%2C427.6--52%2C368.7--33%2C124.8--17%2C522.0--6%2C921.7%23%23Value-added+of+Industry%2C+Current+Quarter%28100+million+yuan%29--61%2C146.1--53%2C797.1--63%2C256.8--59%2C030.5--59%2C400.3--53%2C495.8--63%2C389.9--59%2C061.7--58%2C607.6--52%2C797.1--61%2C058.6--55%2C883.3--55%2C267.2--50%2C128.5--56%2C804.4--52%2C452.1--52%2C496.9--47%2C152.2%23%23Value-added+of+Industry%2C+Accumulated%28100+million+yuan%29--114%2C943.2--53%2C797.1--235%2C183.5--171%2C926.6--112%2C896.1--53%2C495.8--233%2C856.4--170%2C466.5--111%2C404.7--52%2C797.1--222%2C337.6--161%2C279.0--105%2C395.7--50%2C128.5--208%2C905.6--152%2C101.2--99%2C649.1--47%2C152.2%23%23Value-added+of+Construction%2C+Current+Quarter%28100+million+yuan%29--12%2C425.6--7%2C452.2--15%2C158.4--12%2C555.8--11%2C668.4--7%2C164.0--14%2C710.7--12%2C257.7--11%2C225.0--6%2C687.1--13%2C504.9--11%2C188.0--10%2C181.8--6%2C022.1--12%2C145.1--10%2C096.0--9%2C228.4--5%2C426.7%23%23Value-added+of+Construction%2C+Accumulated%28100+million+yuan%29--19%2C877.8--7%2C452.2--46%2C546.6--31%2C388.3--18%2C832.4--7%2C164.0--44%2C880.5--30%2C169.8--17%2C912.1--6%2C687.1--40%2C896.8--27%2C391.9--16%2C203.9--6%2C022.1--36%2C896.1--24%2C751.0--14%2C655.0--5%2C426.7%23%23Value-added+of+Wholesale+and+Retail+Trades%2C+Current+Quarter%28100+million+yuan%29--17%2C048.2--16%2C293.1--18%2C357.3--16%2C595.4--15%2C947.5--15%2C303.6--17%2C254.6--15%2C623.0--15%2C080.2--14%2C465.7--15%2C700.8--14%2C093.1--13%2C511.0--12%2C979.2--13%2C838.8--12%2C451.8--12%2C013.8--11%2C526.6%23%23Value-added+of+Wholesale+and+Retail+Trades%2C+Accumulated%28100+million+yuan%29--33%2C341.3--16%2C293.1--66%2C203.8--47%2C846.5--31%2C251.1--15%2C303.6--62%2C423.5--45%2C168.9--29%2C545.9--14%2C465.7--56%2C284.1--40%2C583.3--26%2C490.2--12%2C979.2--49%2C831.0--35%2C992.2--23%2C540.4--11%2C526.6%23%23Value-added+of+Transport%2C+Storage+and+Post%2C+Current+Quarter%28100+million+yuan%29--8%2C286.3--7%2C250.4--8%2C101.0--7%2C871.2--7%2C617.2--6%2C781.5--7%2C611.2--7%2C398.1--7%2C170.1--6%2C321.6--6%2C933.2--6%2C763.1--6%2C522.0--5%2C824.4--6%2C328.8--6%2C119.5--6%2C025.6--5%2C289.3%23%23Value-added+of+Transport%2C+Storage+and+Post%2C+Accumulated%28100+million+yuan%29--15%2C536.7--7%2C250.4--30%2C370.9--22%2C269.8--14%2C398.7--6%2C781.5--28%2C500.9--20%2C889.8--13%2C491.7--6%2C321.6--26%2C042.7--19%2C109.5--12%2C346.4--5%2C824.4--23%2C763.2--17%2C434.4--11%2C314.9--5%2C289.3%23%23Value-added+of+Hotels+and+Catering+Services%2C+Current+Quarter%28100+million+yuan%29--3%2C038.2--3%2C113.0--3%2C427.0--3%2C108.2--2%2C781.6--2%2C842.2--3%2C139.6--2%2C840.0--2%2C561.0--2%2C617.8--2%2C884.0--2%2C608.7--2%2C341.1--2%2C394.5--2%2C690.9--2%2C433.5--2%2C181.6--2%2C230.9%23%23Value-added+of+Hotels+and+Catering+Services%2C+Accumulated%28100+million+yuan%29--6%2C151.1--3%2C113.0--12%2C159.1--8%2C732.1--5%2C623.8--2%2C842.2--11%2C158.5--8%2C018.8--5%2C178.8--2%2C617.8--10%2C228.3--7%2C344.3--4%2C735.6--2%2C394.5--9%2C536.9--6%2C846.0--4%2C412.5--2%2C230.9%23%23Value-added+of+Financial+Intermediation%2C+Current+Quarter%28100+million+yuan%29--15%2C427.9--15%2C791.4--14%2C815.1--14%2C117.9--14%2C325.0--14%2C242.2--12%2C030.3--11%2C567.3--11%2C311.7--11%2C755.9--10%2C355.6--10%2C293.8--10%2C160.4--10%2C381.2--8%2C888.6--8%2C787.7--8%2C686.0--8%2C826.0%23%23Value-added+of+Financial+Intermediation%2C+Accumulated%28100+million+yuan%29--31%2C219.3--15%2C791.4--57%2C500.1--42%2C685.0--28%2C567.2--14%2C242.2--46%2C665.2--34%2C634.9--23%2C067.6--11%2C755.9--41%2C191.0--30%2C835.4--20%2C541.6--10%2C381.2--35%2C188.4--26%2C299.8--17%2C512.1--8%2C826.0%23%23Value-added+of+Real+Estate%2C+Current+Quarter%28100+million+yuan%29--11%2C674.4--10%2C819.0--11%2C595.1--10%2C357.5--10%2C153.6--9%2C201.4--10%2C595.7--9%2C337.2--9%2C181.0--8%2C887.0--9%2C999.2--8%2C936.9--8%2C676.2--8%2C375.2--8%2C898.4--7%2C804.0--7%2C526.3--7%2C019.6%23%23Value-added+of+Real+Estate%2C+Accumulated%28100+million+yuan%29--22%2C493.4--10%2C819.0--41%2C307.6--29%2C712.5--19%2C355.0--9%2C201.4--38%2C000.8--27%2C405.2--18%2C068.0--8%2C887.0--35%2C987.6--25%2C988.3--17%2C051.4--8%2C375.2--31%2C248.3--22%2C349.9--14%2C545.9--7%2C019.6%23%23Value-added+of+Others%2C+Current+Quarter%28100+million+yuan%29--37%2C100.6--37%2C041.1--34%2C275.9--33%2C331.6--32%2C831.4--32%2C876.4--30%2C286.2--29%2C441.9--29%2C285.1--29%2C309.5--26%2C888.9--26%2C088.9--26%2C110.7--26%2C214.3--23%2C629.9--22%2C874.8--22%2C923.5--23%2C200.9%23%23Value-added+of+Others%2C+Accumulated%28100+million+yuan%29--74%2C141.6--37%2C041.1--133%2C315.4--99%2C039.5--65%2C707.8--32%2C876.4--118%2C322.7--88%2C036.5--58%2C594.6--29%2C309.5--105%2C302.8--78%2C413.9--52%2C325.0--26%2C214.3--92%2C629.2--68%2C999.2--46%2C124.4--23%2C200.9%23%23%22%2C%22title%22%3A%22Quarterly%22%2C%22dataSource%22%3A%22National+Bureau+of+Statistics%22%2C%22dbcode%22%3A%22Database%EF%BC%9AQuarterly%22%2C%22rowcode%22%3A%22zb%22%2C%22colcode%22%3A%22sj%22%2C%22explain%22%3A%22Note%3A%22%7D&exps=%5B%7B%22dt%22%3A%221.%22%2C%22dd%22%3A%22GDP+quarterly+and+value-added+by+industry+are+preliminary+accounting+data+in+2013.%22%7D%2C%7B%22dt%22%3A%222.%22%2C%22dd%22%3A%22The+classification+by+the+three+strata+of+industry+is+based+on+the+%E2%80%9CRegulation+on+the+Classification+by+Three+Strata+of+Industry%E2%80%9D+made+by+the+National+Bureau+of+Statistics+in+2012.+The+primary+industry+refers+to+agriculture%2C+forestry%2C+animal+husbandry+and+fishery+industries+%28except+support+services+to+agriculture%2C+forestry%2C+animal+husbandry+and+fishery+industries%29.+The+secondary+industry+refers+to+mining+%28except+auxiliary+activities+of+mining%29%2C+manufacturing+%28except+repairs+for+metal+products%2C+machinery+and+equipment%29%2C+production+and+supply+of+electricity%2C+steam%2C+gas+and+water%2C+and+construction.+The+tertiary+industry+refers+to+all+other+industries+not+included+in+primary+or+secondary+industry.%22%7D%2C%7B%22dt%22%3A%223.%22%2C%22dd%22%3A%22The+industrial+classification+is+based+on+the+%E2%80%9CNational+Industrial+Classification+of+Economic+Activities+%E2%80%9D%28GB%2FT+4754%EF%BC%8D2011%29.%22%7D%2C%7B%22dt%22%3A%224.%22%2C%22dd%22%3A%22The+historical+quarterly+data+are+revised+on+the+basis+of+the+Third+National+Economic+Census.%22%7D%5D"
+                },
+                'name': 'Gross Domestic Product'
+            }
+        ],
+        'name': 'Gross Domestic Product',
+        'parent': 'NA(Q)',
+        'position': 1
+    },
+    {
+        'all_parents': ['NA(Q)'],
+        'category_code': 'NA(Q).GDP(CP)',
+        'datasets': [
+            {
+                'dataset_code': 'GDP(CP)(Q)',                
+                'last_update': None,
+                'metadata': {
+                    'id': 'A0102',
+                    'doc_href': None, 
+                    'url': "http://data.stats.gov.cn/english/download.htm?ifNormal=true&type=xml&pdfWidth=1690&otherwds=%5B%7B%22wdname%22%3A%22Quarter%22%2C%22wdcode%22%3A%22sj%22%2C%22valuecode%22%3A%22LATEST18%22%7D%5D&tableData=%7B%22data%22%3A%22Indicators--2Q+2016--1Q+2016--4Q+2015--3Q+2015--2Q+2015--1Q+2015--4Q+2014--3Q+2014--2Q+2014--1Q+2014--4Q+2013--3Q+2013--2Q+2013--1Q+2013--4Q+2012--3Q+2012--2Q+2012--1Q+2012%23%23Gross+Domestic+Product+%28at+Constant+Prices%29%2C+Current+Quarter%28100+million+yuan%29--178%2C732.9--159%2C924.5--169%2C830.8--153%2C493.1--147%2C196.2--132%2C691.9--159%2C074.4--143%2C619.8--137%2C517.9--123%2C982.2--148%2C354.9--134%2C061.9--127%2C948.4--115%2C470.2--137%2C742.2--124%2C215.4--118%2C956.3--107%2C062.3%23%23Gross+Domestic+Product+%28at+Constant+Prices%29%2C+Accumulated%28100+million+yuan%29--338%2C657.4--159%2C924.5--603%2C212.1--433%2C381.3--279%2C888.2--132%2C691.9--564%2C194.4--405%2C120.0--261%2C500.2--123%2C982.2--525%2C835.4--377%2C480.5--243%2C418.6--115%2C470.2--487%2C976.2--350%2C234.0--226%2C018.6--107%2C062.3%23%23Value-added+of+the+Primary+Industry+%28at+Constant+Prices%29%2C+Current+Quarter%28100+million+yuan%29--12%2C881.7--8%2C000.2--18%2C194.4--14%2C613.0--9%2C474.4--5%2C802.4--17%2C480.1--14%2C030.4--9%2C140.2--5%2C626.7--16%2C820.6--13%2C411.4--8%2C790.5--5%2C451.0--16%2C071.9--12%2C912.1--8%2C564.0--5%2C291.8%23%23Value-added+of+the+Primary+Industry+%28at+Constant+Prices%29%2C+Accumulated%28100+million+yuan%29--20%2C881.8--8%2C000.2--48%2C084.2--29%2C889.8--15%2C276.8--5%2C802.4--46%2C277.5--28%2C797.4--14%2C767.0--5%2C626.7--44%2C473.5--27%2C653.0--14%2C241.5--5%2C451.0--42%2C839.8--26%2C768.0--13%2C855.8--5%2C291.8%23%23Value-added+of+the+Secondary+Industry+%28at+Constant+Prices%29%2C+Current+Quarter%28100+million+yuan%29--74%2C660.3--62%2C711.8--80%2C245.2--71%2C360.3--70%2C617.7--60%2C586.0--75%2C591.8--67%2C418.0--66%2C579.7--56%2C974.6--70%2C657.5--62%2C842.2--61%2C737.1--52%2C974.6--65%2C333.9--58%2C005.7--57%2C383.9--49%2C129.3%23%23Value-added+of+the+Secondary+Industry+%28at+Constant+Prices%29%2C+Accumulated%28100+million+yuan%29--137%2C372.1--62%2C711.8--282%2C809.1--202%2C564.0--131%2C203.7--60%2C586.0--266%2C564.1--190%2C972.3--123%2C554.3--56%2C974.6--248%2C211.4--177%2C553.9--114%2C711.7--52%2C974.6--229%2C852.7--164%2C518.8--106%2C513.1--49%2C129.3%23%23Value-added+of+the+Tertiary+Industry+%28at+Constant+Prices%29%2C+Current+Quarter%28100+million+yuan%29--91%2C190.9--89%2C212.6--71%2C391.3--67%2C519.9--67%2C104.1--66%2C303.6--66%2C002.6--62%2C171.4--61%2C798.0--61%2C380.9--60%2C876.8--57%2C808.3--57%2C420.8--57%2C044.6--56%2C336.5--53%2C297.6--53%2C008.4--52%2C641.2%23%23Value-added+of+the+Tertiary+Industry+%28at+Constant+Prices%29%2C+Accumulated%28100+million+yuan%29--180%2C403.5--89%2C212.6--272%2C318.9--200%2C927.6--133%2C407.7--66%2C303.6--251%2C352.9--185%2C350.3--123%2C178.9--61%2C380.9--233%2C150.5--172%2C273.7--114%2C465.4--57%2C044.6--215%2C283.7--158%2C947.2--105%2C649.6--52%2C641.2%23%23%22%2C%22title%22%3A%22Quarterly%22%2C%22dataSource%22%3A%22National+Bureau+of+Statistics%22%2C%22dbcode%22%3A%22Database%EF%BC%9AQuarterly%22%2C%22rowcode%22%3A%22zb%22%2C%22colcode%22%3A%22sj%22%2C%22explain%22%3A%22%22%7D&exps=%5B%5D"
+                },
+                'name': 'Gross Domestic Product (at Constant Prices)'
+            }
+        ],
+        'name': 'Gross Domestic Product (at Constant Prices)',
+        'parent': 'NA(Q)',
+        'position': 2
+    },
+    {
+        'all_parents': ['NA(Q)'],
+        'category_code': 'NA(Q).IGDP',
+        'datasets': [
+            {
+                'dataset_code': 'IGDP(Q)',                
+                'last_update': None,
+                'metadata': {
+                    'id': 'A0103',
+                    'doc_href': None, 
+                    'url': "http://data.stats.gov.cn/english/download.htm?ifNormal=true&type=xml&pdfWidth=1699&otherwds=%5B%7B%22wdname%22%3A%22Quarter%22%2C%22wdcode%22%3A%22sj%22%2C%22valuecode%22%3A%22LATEST18%22%7D%5D&tableData=%7B%22data%22%3A%22Indicators--2Q+2016--1Q+2016--4Q+2015--3Q+2015--2Q+2015--1Q+2015--4Q+2014--3Q+2014--2Q+2014--1Q+2014--4Q+2013--3Q+2013--2Q+2013--1Q+2013--4Q+2012--3Q+2012--2Q+2012--1Q+2012%23%23Indices+of+Gross+Domestic+Product+%28preceding+year%3D100%29%2C+Current+Quarter--106.7--106.7--106.8--106.9--107.0--107.0--107.2--107.1--107.5--107.4--107.7--107.9--107.6--107.9--108.1--107.5--107.6--108.1%23%23Indices+of+Gross+Domestic+Product+%28preceding+year%3D100%29%2C+Accumulated--106.7--106.7--106.9--107.0--107.0--107.0--107.3--107.3--107.4--107.4--107.8--107.8--107.7--107.9--107.9--107.8--107.9--108.1%23%23Indices+of+Value-added+of+the+Primary+Industry+%28preceding+year%3D100%29%2C+Current+Quarter--103.1--102.9--104.1--104.2--103.7--103.1--103.9--104.6--104.0--103.2--104.7--103.9--102.6--103.0--105.0--104.1--104.6--103.7%23%23Indices+of+Value-added+of+the+Primary+Industry+%28preceding+year%3D100%29%2C+Accumulated--103.1--102.9--103.9--103.8--103.5--103.1--104.1--104.1--103.7--103.2--103.8--103.3--102.8--103.0--104.5--104.2--104.3--103.7%23%23Indices+of+Value-added+of+the+Secondary+Industry+%28preceding+year%3D100%29%2C+Current+Quarter--106.3--105.9--106.2--105.8--106.1--106.3--107.0--107.3--107.8--107.6--108.1--108.3--107.6--107.8--108.5--107.7--108.0--109.5%23%23Indices+of+Value-added+of+the+Secondary+Industry+%28preceding+year%3D100%29%2C+Accumulated--106.1--105.9--106.1--106.1--106.2--106.3--107.4--107.6--107.7--107.6--108.0--107.9--107.7--107.8--108.4--108.3--108.7--109.5%23%23Indices+of+Value-added+of+the+Tertiary+Industry+%28preceding+year%3D100%29%2C+Current+Quarter--107.5--107.6--108.2--108.6--108.6--108.0--108.4--107.5--107.6--107.6--108.1--108.5--108.3--108.4--108.7--108.2--107.8--107.3%23%23Indices+of+Value-added+of+the+Tertiary+Industry+%28preceding+year%3D100%29%2C+Accumulated--107.5--107.6--108.3--108.4--108.3--108.0--107.8--107.6--107.6--107.6--108.3--108.4--108.3--108.4--108.0--107.8--107.6--107.3%23%23Indices+of+Value-added+of+Agriculture%2C+Forestry%2C+Animal+Husbandry+and+Fishery+industries+%28preceding+year%3D100%29%2C+Current+Quarter--103.3--103.1--104.2--104.3--103.8--103.3--104.1--104.7--104.1--103.4--104.8--104.0--102.8--103.2--105.1--104.1--104.7--103.8%23%23Indices+of+Value-added+of+Agriculture%2C+Forestry%2C+Animal+Husbandry+and+Fishery+industries+%28preceding+year%3D100%29%2C+Accumulated--103.2--103.1--104.0--103.9--103.6--103.3--104.2--104.3--103.8--103.4--104.0--103.5--103.0--103.2--104.5--104.2--104.3--103.8%23%23Indices+of+Value-added+of+Industry+%28preceding+year%3D100%29%2C+Current+Quarter--106.0--105.7--105.9--105.9--106.1--106.1--106.6--106.9--107.5--107.3--107.9--108.1--107.3--107.6--108.2--107.4--107.7--109.4%23%23Indices+of+Value-added+of+Industry+%28preceding+year%3D100%29%2C+Accumulated--105.9--105.7--106.0--106.0--106.1--106.1--107.0--107.2--107.4--107.3--107.7--107.7--107.4--107.6--108.1--108.1--108.5--109.4%23%23Indices+of+Value-added+of+Construction+%28preceding+year%3D100%29%2C+Current+Quarter--107.3--107.8--107.3--105.8--105.8--108.6--108.7--109.0--109.5--109.4--109.3--110.0--109.7--109.9--109.7--109.7--109.5--110.2%23%23Indices+of+Value-added+of+Construction+%28preceding+year%3D100%29%2C+Accumulated--107.5--107.8--106.8--106.5--106.9--108.6--109.1--109.3--109.5--109.4--109.7--109.9--109.8--109.9--109.8--109.8--109.8--110.2%23%23Indices+of+Value-added+of+Wholesale+and+Retail+Trades+%28preceding+year%3D100%29%2C+Current+Quarter--106.5--105.8--106.3--106.1--105.8--106.1--109.3--109.6--109.9--110.2--110.9--110.5--110.5--110.1--110.8--110.3--109.9--110.1%23%23Indices+of+Value-added+of+Wholesale+and+Retail+Trades+%28preceding+year%3D100%29%2C+Accumulated--106.2--105.8--106.1--106.0--106.0--106.1--109.7--109.9--110.1--110.2--110.5--110.4--110.3--110.1--110.3--110.1--110.0--110.1%23%23Indices+of+Value-added+of+Transport%2C+Storage+and+Post+%28preceding+year%3D100%29%2C+Current+Quarter--105.7--103.3--104.6--104.6--104.0--105.4--106.9--106.2--106.8--106.0--106.8--106.9--106.3--106.4--107.0--105.5--106.1--105.7%23%23Indices+of+Value-added+of+Transport%2C+Storage+and+Post+%28preceding+year%3D100%29%2C+Accumulated--104.6--103.3--104.6--104.6--104.6--105.4--106.5--106.3--106.4--106.0--106.6--106.5--106.3--106.4--106.1--105.8--105.9--105.7%23%23Indices+of+Value-added+of+Hotels+and+Catering+Services+%28preceding+year%3D100%29%2C+Current+Quarter--106.8--107.0--106.6--106.6--105.8--105.7--105.8--105.7--106.0--105.6--104.3--104.1--103.7--103.4--106.9--106.7--106.0--106.2%23%23Indices+of+Value-added+of+Hotels+and+Catering+Services+%28preceding+year%3D100%29%2C+Accumulated--106.9--107.0--106.2--106.0--105.7--105.7--105.8--105.8--105.8--105.6--103.9--103.7--103.5--103.4--106.5--106.3--106.1--106.2%23%23Indices+of+Value-added+of+Financial+Intermediation+%28preceding+year%3D100%29%2C+Current+Quarter--105.3--108.1--112.7--116.0--119.3--115.8--114.4--109.1--107.7--108.6--110.5--111.1--109.8--110.9--111.6--110.4--109.3--106.8%23%23Indices+of+Value-added+of+Financial+Intermediation+%28preceding+year%3D100%29%2C+Accumulated--106.7--108.1--115.9--117.0--117.5--115.8--109.9--108.5--108.2--108.6--110.6--110.6--110.3--110.9--109.4--108.8--108.0--106.8%23%23Indices+of+Value-added+of+Real+Estate+%28preceding+year%3D100%29%2C+Current+Quarter--108.8--109.1--104.2--105.0--104.8--101.0--101.9--101.3--102.4--102.6--104.8--107.1--107.5--109.8--109.1--106.9--101.9--100.6%23%23Indices+of+Value-added+of+Real+Estate+%28preceding+year%3D100%29%2C+Accumulated--109.0--109.1--103.8--103.6--102.9--101.0--102.0--102.1--102.5--102.6--107.2--108.1--108.6--109.8--104.7--103.1--101.2--100.6%23%23Indices+of+Value-added+of+Others+%28preceding+year%3D100%29%2C+Current+Quarter--109.0--108.7--110.0--109.6--108.7--108.9--108.8--108.6--108.5--108.1--107.3--107.7--107.8--107.0--107.0--107.8--108.9--108.9%23%23Indices+of+Value-added+of+Others+%28preceding+year%3D100%29%2C+Accumulated--108.9--108.7--109.3--109.1--108.8--108.9--108.5--108.4--108.3--108.1--107.5--107.5--107.4--107.0--108.1--108.5--108.9--108.9%23%23%22%2C%22title%22%3A%22Quarterly%22%2C%22dataSource%22%3A%22National+Bureau+of+Statistics%22%2C%22dbcode%22%3A%22Database%EF%BC%9AQuarterly%22%2C%22rowcode%22%3A%22zb%22%2C%22colcode%22%3A%22sj%22%2C%22explain%22%3A%22%22%7D&exps=%5B%5D"
+                },
+                'name': 'Indices of Gross Domestic Product'
+            }
+        ],
+        'name': 'Indices of Gross Domestic Product',
+        'parent': 'NA(Q)',
+        'position': 3
+    },
+    {
+        'all_parents': ['NA(Q)'],
+        'category_code': 'NA(Q).GDPGR(preceding _quarter=100)',
+        'datasets': [
+            {
+                'dataset_code': 'GDPGR(preceding _quarter=100)(Q)',                
+                'last_update': None,
+                'metadata': {
+                    'id': 'A0104',
+                    'doc_href': None, 
+                    'url': "http://data.stats.gov.cn/english/download.htm?ifNormal=true&type=xml&pdfWidth=1673&otherwds=%5B%7B%22wdname%22%3A%22Quarter%22%2C%22wdcode%22%3A%22sj%22%2C%22valuecode%22%3A%22LATEST18%22%7D%5D&tableData=%7B%22data%22%3A%22Indicators--2Q+2016--1Q+2016--4Q+2015--3Q+2015--2Q+2015--1Q+2015--4Q+2014--3Q+2014--2Q+2014--1Q+2014--4Q+2013--3Q+2013--2Q+2013--1Q+2013--4Q+2012--3Q+2012--2Q+2012--1Q+2012%23%23Gross+Domestic+Product%EF%BC%8CGrowth+Rate+%28preceding+quarter%3D100%29%28%25%29--1.8--1.2--1.5--1.8--1.8--1.6--1.7--1.9--1.8--1.7--1.6--2.1--1.7--1.9--1.9--1.8--2.2--1.8%23%23%22%2C%22title%22%3A%22Quarterly%22%2C%22dataSource%22%3A%22National+Bureau+of+Statistics%22%2C%22dbcode%22%3A%22Database%EF%BC%9AQuarterly%22%2C%22rowcode%22%3A%22zb%22%2C%22colcode%22%3A%22sj%22%2C%22explain%22%3A%22%22%7D&exps=%5B%5D"
+                },
+                'name': 'Gross Domestic Product，Growth Rate (preceding _quarter=100)'
+            }
+        ],
+        'name': 'Gross Domestic Product，Growth Rate (preceding _quarter=100)',
+        'parent': 'NA(Q)',
+        'position': 4
+    },
+    {
+        'all_parents': [],
         'category_code': 'NA',
         'datasets': [],
         'name': 'National Accounts',
@@ -1592,7 +1676,7 @@ def parse_site():
     return li
     
 def make_code(name):
-    if "preceding year" in name or "1978" in name:
+    if "=100" in name:
         s = re.match(r'(.*)(\(.*\))', name)
         code = re.sub(r'[^A-Z]+', r'', s.group(1)) + s.group(2) 
     elif name == "Composition of GDP by the three strata of industry":
@@ -1606,40 +1690,6 @@ def make_code(name):
     else:
         code = re.sub(r'[^A-Z\(\)]', r'', name)
     return code
-
-def make_dataset(node, _category_code):
-    dataset = {
-        'name': node['name'],
-        'dataset_code': make_code(node['name']),
-        'last_update': None,
-        'metadata': {
-            'url': None,
-            'doc_href': None
-        }
-    }
-    
-    if len(dataset['dataset_code']) < 3:
-        dataset['dataset_code'] = _category_code
-    elif dataset['dataset_code'] == "V(preceding year=100)":
-        dataset['dataset_code'] = "NA.V(preceding year=100)"
-    elif dataset['dataset_code'] == "V(1978=100)":
-        dataset['dataset_code'] = "NA.V(1978=100)"
-    return dataset
-
-def get_tableData(node):
-    payload = {
-        'm': "QueryData", 
-        'dbcode': "hgnd",
-        'rowcode': "zb",
-        'colcode': "sj",
-        'wds': "[]",
-        'dfwds': '[{"wdcode":"zb","valuecode":%s}]' % (node['id']),
-        'k1': "1470125034252"
-    }
-    requests.get("http://data.stats.gov.cn/english/easyquery.htm", params=payload)
-    req = requests.get("http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgnd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{%22wdcode%22:%22sj%22,%22valuecode%22:%22LAST20%22}]&k1=1470126105760")
-    data_20 = req.json()   
-    return data_20
 
 def make_url(data): 
     year = [str(i) for i in range(1995, 2015)]
@@ -1708,52 +1758,96 @@ class NBS(Fetcher):
     def build_data_tree(self):
         url = "http://data.stats.gov.cn/english/easyquery.htm"
         
-        def check_data_tree(node, parent_key): 
+        def check_data_tree(node, parent_key):
+            if node['dbcode'] == 'hgjd':
+                if not parent_key:
+                    _category_code = 'NA(Q)'
+                else:
+                    _category_code = "%s.%s" % (parent_key, make_code(node['name']))
+                print(_category_code)
+                if node['isParent'] == False and parent_key == 'NA(Q)':
+                    old_category = [cat for cat in CATEGORIES if cat['category_code'] == _category_code]
 
-            if not parent_key:
-                _category_code = 'NA'
-            else:
-                _category_code = "%s.%s" % (parent_key, make_code(node['name']))            
-            
-            if node['isParent'] == False and parent_key == 'NA':                
-                old_category = [cat for cat in CATEGORIES if cat['category_code'] == _category_code]
-                if len(old_category) != 1 or len(old_category[0]['datasets']) != 1 or old_category[0]['datasets'][0]['name'] != node['name']:                   
-                    raise Exception("Data tree needs to be updated at %s" % (_category_code))
-            elif node['isParent'] == True:
-                payload = {
-                    'id': node['id'], 
-                    'dbcode': 'hgnd', 
-                    'wdcode': 'zb', 
-                    'm': 'getTree'
-                }
-                req = requests.post(url, data=payload).json()
+                    if len(old_category) != 1 or len(old_category[0]['datasets']) != 1 or old_category[0]['datasets'][0]['name'] != node['name']:                   
+                        raise Exception("Data tree needs to be updated at %s" % (_category_code))
+                elif node['isParent'] == True:
+                    payload = {
+                        'id': node['id'], 
+                        'dbcode': 'hgjd', 
+                        'wdcode': 'zb', 
+                        'm': 'getTree'
+                    }
+                    req = requests.post(url, data=payload).json()
+                    
+                    old_children = [cat['name'] for cat in CATEGORIES if cat['parent'] == _category_code]
+                    new_children = [cat['name'] for cat in req]
+                    
+                    datasets = None
+                    dataset_names = None
+                    for cat in CATEGORIES:
+                        if cat['category_code'] == _category_code:
+                            datasets = cat['datasets']
+                            dataset_names = [d['name'] for d in datasets]
+                            break                       
+                    if new_children != old_children and new_children != dataset_names:
+                        raise Exception("Data tree needs to be updated at %s" % (_category_code))               
+                    for node in req:
+                        check_data_tree(node, _category_code)                    
+                    
+            if node['dbcode'] == 'hgnd':
+                if not parent_key:
+                    _category_code = 'NA'
+                else:
+                    _category_code = "%s.%s" % (parent_key, make_code(node['name']))            
                 
-                old_children = [cat['name'] for cat in CATEGORIES if cat['parent'] == _category_code]
-                new_children = [cat['name'] for cat in req]
-                
-                datasets = None
-                dataset_names = None
-                for cat in CATEGORIES:
-                    if cat['category_code'] == _category_code:
-                        datasets = cat['datasets']
-                        dataset_names = [d['name'] for d in datasets]
-                        break
-                                        
-                if new_children != old_children and new_children != dataset_names:
-                    raise Exception("Data tree needs to be updated at %s" % (_category_code))               
-                for node in req:
-                    check_data_tree(node, _category_code)
+                if node['isParent'] == False and parent_key == 'NA':                
+                    old_category = [cat for cat in CATEGORIES if cat['category_code'] == _category_code]
+                    if len(old_category) != 1 or len(old_category[0]['datasets']) != 1 or old_category[0]['datasets'][0]['name'] != node['name']:                   
+                        raise Exception("Data tree needs to be updated at %s" % (_category_code))
+                elif node['isParent'] == True:
+                    payload = {
+                        'id': node['id'], 
+                        'dbcode': 'hgnd', 
+                        'wdcode': 'zb', 
+                        'm': 'getTree'
+                    }
+                    req = requests.post(url, data=payload).json()
+                    
+                    old_children = [cat['name'] for cat in CATEGORIES if cat['parent'] == _category_code]
+                    new_children = [cat['name'] for cat in req]
+                    
+                    datasets = None
+                    dataset_names = None
+                    for cat in CATEGORIES:
+                        if cat['category_code'] == _category_code:
+                            datasets = cat['datasets']
+                            dataset_names = [d['name'] for d in datasets]
+                            break
+                        
+                    if new_children != old_children and new_children != dataset_names:
+                        raise Exception("Data tree needs to be updated at %s" % (_category_code))               
+                    for node in req:
+                        check_data_tree(node, _category_code)
          
-        node = {
+        parent_node_annual = {
             'dbcode': 'hgnd',
             'id': 'A02',
             'isParent': True,
             'name': 'National Accounts',
-            'pid': 'A',
+            'pid': '',
             'wdcode': 'zb'         
         }
+        parent_node_quartely = {
+            'dbcode': 'hgjd',
+            'id': 'A01',
+            'isParent': True,
+            'name': 'National Accounts',
+            'pid': '',
+            'wdcode': 'zb' 
+        }
         if self.check_data_tree == True:
-            check_data_tree(node, parent_key=None)
+            check_data_tree(parent_node_annual, parent_key=None)
+            check_data_tree(parent_node_quartely, parent_key=None)
 
         return CATEGORIES
     
@@ -1779,15 +1873,26 @@ class NBS(Fetcher):
                                name=self.dataset_settings['name'],
                                last_update=clean_datetime(),
                                fetcher=self)
-            payload = {
-                'm': "QueryData", 
-                'dbcode': "hgnd",
-                'rowcode': "zb",
-                'colcode': "sj",
-                'wds': "[]",
-                'dfwds': '[{"wdcode":"zb","valuecode":"%s"}]' % (self.dataset_settings['metadata']['id']),
-                'k1': "1"
-            }
+            if "(Q)" in self.dataset_settings['dataset_code']:
+                payload = {
+                    'm': "QueryData", 
+                    'dbcode': "hgjd",
+                    'rowcode': "zb",
+                    'colcode': "sj",
+                    'wds': "[]",
+                    'dfwds': '[{"wdcode":"zb","valuecode":"%s"}]' % (self.dataset_settings['metadata']['id']),
+                    'k1': "1"
+                }
+            else:
+                payload = {
+                    'm': "QueryData", 
+                    'dbcode': "hgnd",
+                    'rowcode': "zb",
+                    'colcode': "sj",
+                    'wds': "[]",
+                    'dfwds': '[{"wdcode":"zb","valuecode":"%s"}]' % (self.dataset_settings['metadata']['id']),
+                    'k1': "1"
+                }
             #   Get the data of the latest ten years
             req = requests.get("http://data.stats.gov.cn/english/easyquery.htm", params=payload)
             data = req.json()                
@@ -1802,8 +1907,9 @@ class NBS(Fetcher):
         yield {'action': 'update-fetcher',
                'kwargs': {'provider_name': self.provider_name},
                'period_type': 'cron',
-               "period_kwargs": { 
-                   "day": '*', 
+               "period_kwargs": {
+                   "month": '*',
+                   "day": 1, 
                    "hour": 0, 
                    "minute": 1, 
                    "timezone": 'Europe/Paris'
