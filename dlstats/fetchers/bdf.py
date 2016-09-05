@@ -265,6 +265,7 @@ class BDF_Data(SeriesIterator):
                                dataset_code=self.dataset_code)
     
     def _load_datas(self):
+        #TODO: Special case for datasets BSI1 and CONJ
         filepath = list()
         if self.dataset_url:
             download = Downloader(url=self.dataset_url, 
