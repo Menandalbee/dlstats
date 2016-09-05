@@ -300,10 +300,10 @@ class FetcherTestCase(BaseFetcherTestCase):
         self._load_info_ame()
         self._load_dataset_ame()
         self.assertLoadDatasetsFirst([dataset_code])
-        
-    @httpretty.activate 
     @freeze_time("2016-07-06 00:00:01")    
     @unittest.skipUnless('FULL_TEST' in os.environ, "Skip - no full test")
+        
+    @httpretty.activate 
     def test_load_datasets_update(self):
 	
         dataset_code = 'ECOFI'

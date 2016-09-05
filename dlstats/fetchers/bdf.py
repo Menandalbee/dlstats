@@ -311,11 +311,12 @@ class BDF_Data(SeriesIterator):
                     self.isFinished = True
                     break
                 if elem.tag == self.nsString + 'DataSet' and self.i != len(self.filepath)-1:
-                    # Pass to the next file                    
+                    # Pass to the next file      
                     self.i += 1
                     self.file_handle = open(self.filepath[self.i], 'rb')
                     self.context = get_events(self.file_handle, self.nsString)
                     series = self.__next__()
+                    elem.clear()
                     break                    
                 if elem.tag == self.nsString + 'Group':
                     group = slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))
