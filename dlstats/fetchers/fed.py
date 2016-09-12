@@ -10,7 +10,7 @@ from dlstats.xml_utils import (XMLStructure_1_0 as XMLStructure,
                                XMLData_1_0_FED as XMLData,
                                dataset_converter)
 
-VERSION = 2
+VERSION = 3
 
 FREQUENCIES_SUPPORTED = [
     "M", 
@@ -1269,6 +1269,7 @@ class FED(Fetcher):
                                   version=VERSION,
                                   region='US',
                                   website='http://www.federalreserve.gov',
+                                  terms_of_use='http://www.federalreserve.gov/accessibility.htm',
                                   fetcher=self)
 
     def build_data_tree(self):
@@ -1281,8 +1282,8 @@ class FED(Fetcher):
                            dataset_code=dataset_code,
                            name=DATASETS[dataset_code]['name'],
                            doc_href=DATASETS[dataset_code]['doc_href'],                           
-                           last_update=clean_datetime(),
                            fetcher=self)
+        dataset.last_update = clean_datetime()
         
         dataset.series.data_iterator = FED_Data(dataset, 
                                                 url=DATASETS[dataset_code]['url'])

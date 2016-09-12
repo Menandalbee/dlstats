@@ -190,7 +190,7 @@ class Fetcher(object):
         if provider:
             self.provider = provider
         
-        if not provider or self.provider.version != self.version:
+        if provider and self.provider.version != self.version:
             self.provider.update_database()
 
         self.provider_verified = True
@@ -393,7 +393,8 @@ class Providers(DlstatsCollection):
                  version=0,
                  region=None,
                  website=None,
-                 metadata=None,
+                 terms_of_use=None,
+                 metadata={},
                  enable=True,
                  lock=False,
                  from_db=False,
@@ -412,6 +413,7 @@ class Providers(DlstatsCollection):
         self.version = version
         self.region = region
         self.website = website
+        self.terms_of_use = terms_of_use
         self.metadata = metadata or {}
         self.enable = enable
         self.lock = lock
@@ -435,6 +437,7 @@ class Providers(DlstatsCollection):
                 'slug': self.slug(),
                 'region': self.region,
                 'website': self.website,
+                'terms_of_use': self.terms_of_use,
                 'metadata': self.metadata,
                 "enable": self.enable,
                 "lock": self.lock}
@@ -647,7 +650,6 @@ class Datasets(DlstatsCollection):
         self.series = series_klass(dataset=self,
                                    provider_name=self.provider_name, 
                                    dataset_code=self.dataset_code, 
-                                   last_update=self.last_update, 
                                    bulk_size=self.bulk_size, 
                                    fetcher=self.fetcher)
 
@@ -753,9 +755,9 @@ class Datasets(DlstatsCollection):
         msg = None
 
         try:
-            if self.fetcher.max_errors and self.fetcher.errors >= self.fetcher.max_errors:
-                msg = "fetcher max errors exceeded [%s]" % self.fetcher.errors
-                return False
+            #if self.fetcher.max_errors and self.fetcher.errors >= self.fetcher.max_errors:
+            #    msg = "fetcher max errors exceeded [%s]" % self.fetcher.errors
+            #    return False
             
             if self.fetcher.db[constants.COL_PROVIDERS].count({"name": self.provider_name}) == 0:
                 msg = "provider[%s] not found in DB" % self.provider_name
@@ -1012,19 +1014,21 @@ def series_is_changed(new_bson, old_bson):
     if len(new_bson["values"]) != len(old_bson["values"]):
         return True
     
-    '''First period change'''
-    if new_bson["values"][0]["period"] != old_bson["values"][0]["period"]:
-        return True 
+    if len(new_bson["values"]) > 0 and len(old_bson["values"]) > 0:
 
-    '''Last period change'''
-    if new_bson["values"][-1]["period"] != old_bson["values"][-1]["period"]:
-        return True
-
-    '''Value(s) change'''    
-    old_values = [v['value'] for v in old_bson['values']]
-    new_values = [v['value'] for v in new_bson['values']]
-    if old_values != new_values:
-        return True
+        '''First period change'''
+        if new_bson["values"][0]["period"] != old_bson["values"][0]["period"]:
+            return True 
+    
+        '''Last period change'''
+        if new_bson["values"][-1]["period"] != old_bson["values"][-1]["period"]:
+            return True
+    
+        '''Value(s) change'''    
+        old_values = [v['value'] for v in old_bson['values']]
+        new_values = [v['value'] for v in new_bson['values']]
+        if old_values != new_values:
+            return True
 
     '''values.$.attributes change(s)'''
     old_obs_attrs = [v['attributes'] for v in old_bson['values']]
@@ -1068,14 +1072,14 @@ def series_verify(new_bson, old_bson=None):
     if old_bson and not isinstance(old_bson, dict):
         raise ValueError("old_bson is not dict instance")            
 
-    #if not "values" in new_bson:
-    #    raise ValueError("not values field in new_bson")
+    if new_bson and not "values" in new_bson:
+        raise ValueError("not values field in new_bson")
 
     if old_bson and not "values" in old_bson:
         raise ValueError("not values field in old_bson")
     
     if not isinstance(new_bson["values"][0], dict):
-        raise ValueError("Invalid format for this series : %s" % new_bson)
+        raise ValueError("Invalid format for this series")
 
     if new_bson["start_date"] > new_bson["end_date"]:
         raise errors.RejectInvalidSeries("Invalid dates. start_date > end_date",
@@ -1160,7 +1164,6 @@ class Series:
                  dataset=None,
                  provider_name=None, 
                  dataset_code=None, 
-                 last_update=None, 
                  bulk_size=500,
                  fetcher=None):
         """        
@@ -1173,7 +1176,6 @@ class Series:
         self.dataset = None
         self.provider_name = provider_name
         self.dataset_code = dataset_code
-        self.last_update = last_update
         
         if not fetcher:
             raise ValueError("fetcher is required")
@@ -1216,7 +1218,7 @@ class Series:
     def __repr__(self):
         return pprint.pformat([('provider_name', self.provider_name),
                                ('dataset_code', self.dataset_code),
-                               ('last_update', self.last_update)])
+                               ('last_update', self.dataset.last_update)])
 
     @timeit("commons.Series.process_series_data")
     def process_series_data(self):
@@ -1329,8 +1331,8 @@ class Series:
     @timeit("commons.Series.update_series_list", stats_only=True)
     def update_series_list(self):
 
-        if not self.dataset_finalized:
-            self.update_dataset_lists_finalize()
+        #if not self.dataset_finalized:
+        #    self.update_dataset_lists_finalize()
         
         keys = [s['key'] for s in self.series_list]
 
@@ -1362,7 +1364,7 @@ class Series:
                 bson['slug'] = slugify(txt, word_boundary=False, save_order=True)
             
             last_update_ds = series_get_last_update_dataset(bson, 
-                                                            last_update=self.last_update)
+                                                            last_update=self.dataset.last_update)
             
             clean_values(bson)
             
