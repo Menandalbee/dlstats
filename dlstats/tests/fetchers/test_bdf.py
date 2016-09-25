@@ -207,7 +207,7 @@ DATA_SEC = {
     "series_accept": 1320,
     "series_reject_frequency": 0,
     "series_reject_empty": 0,
-    "series_all_values": 180212,
+    "series_all_values": 180344, 
     "series_key_first": "SEC.M.AT.1000.F33000.N.1.EUR.E.Z",
     "series_key_last": "SEC.M.ES.1311.F33200.N.4.EUR.E.Z",
     "series_sample": {
@@ -218,18 +218,18 @@ DATA_SEC = {
         'frequency': 'M',
         'last_update': None,
         'first_value': {
-            'value': '246497.000',
-            'ordinal': 419,
-            'period': '2004-12',
+            'value': '251140.000',
+            'ordinal': 420,
+            'period': '2005-01',
             'attributes': {
                 'obs-status': 'A',
                 'obs-conf': 'F'
             },
         },
         'last_value': {
-            'value': '411276.000',
-            'ordinal': 556,
-            'period': '2016-05',
+            'value': '411756.000',
+            'ordinal': 557,
+            'period': '2016-06',
             'attributes': {
                 'obs-status': 'A',
                 'obs-conf': 'F'
@@ -341,14 +341,11 @@ class FetcherTestCase(BaseFetcherTestCase):
     @unittest.skipUnless('FULL_TEST' in os.environ, "Skip - no full test")
     def test_upsert_dataset_sec(self):
         '''Test of a dataset with a large number of series'''
-		
-        # nosetests -s -v dlstats.tests.fetchers.test_nbs:FetcherTestCase.test_upsert_dataset_sec
 		 
         dataset_code = "SEC"
     
         self.assertProvider()
         self.assertDataset(dataset_code)        
-        self.assertSeries(dataset_code)
         
     @httpretty.activate
     @freeze_time("2016-07-06")

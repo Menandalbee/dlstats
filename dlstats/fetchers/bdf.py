@@ -135,16 +135,27 @@ def get_codelists(fp, dimension_keys):
     new_codelists = slugify_dict(codelists)
     return new_codelists
     
-def get_ref_area(dataset_code):
+def get_filter(dataset_code):
     url = "http://webstat.banque-france.fr/en/ajax/browseAdvancedFilterAjax.do?node=DATASETS_%s" % (dataset_code) 
     page = download_page(url)
     html = etree.HTML(page)
-    option = html.findall('.//select[@id="adv_REF_AREA"]/option')
+    if dataset_code == "CDIS":
+        option = html.findall('.//select[@id="adv_COUNTERPART_AREA"]/option')
+        _filter_name = 'COUNTERPART_AREA'
+    elif dataset_code == "BSI1":
+        option = html.findall('.//select[@id="adv_BS_ITEM"]/option')
+        _filter_name = 'BS_ITEM'
+    elif dataset_code == "CONJ":
+        option = html.findall('.//select[@id="adv_ENQCNJ_SECTEUR"]/option')
+        _filter_name = "ENQCNJ_SECTEUR"
+    else:
+        option = html.findall('.//select[@id="adv_REF_AREA"]/option')
+        _filter_name = "REF_AREA"
     
-    area = list()
+    _filter_codes = list()
     for o in option:
-        area.append(o.get('value'))
-    return area
+        _filter_codes.append(o.get('value'))
+    return _filter_name, _filter_codes
          
 def get_ns(fp):
     '''Get the namespace like urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=BDF:BDF_AME1(1.0)'''
@@ -256,16 +267,12 @@ class BDF_Data(SeriesIterator):
         self.filepath = self._load_datas()       
         self.nsString = get_ns(self.filepath[0])
         self.file_handle = None
-                
-        self.nbseries = 0
-        self.nbIteration = 0
 
     def get_store_path(self):
         return make_store_path(base_path=self.fetcher.store_path,
                                dataset_code=self.dataset_code)
     
     def _load_datas(self):
-        #TODO: Special case for datasets BSI1 and CONJ
         filepath = list()
         if self.dataset_url:
             download = Downloader(url=self.dataset_url, 
@@ -274,9 +281,11 @@ class BDF_Data(SeriesIterator):
                                   use_existing_file=self.fetcher.use_existing_file)
             filepath.append(download.get_filepath())
         else:
-            for code in get_ref_area(self.dataset_code):
-                url = "http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&REF_AREA=%s&exportType=sdmx" % (self.dataset_code, code)
-                name = self.dataset_code + "_%s" % (code)                
+            _filter_name, _filter_codes = get_filter(self.dataset_code)
+            for code in _filter_codes:
+                url = "http://webstat.banque-france.fr/en/export.do?node=DATASETS_%s&%s=%s&exportType=sdmx" % (self.dataset_code, _filter_name, code)              
+                name = self.dataset_code + "_%s" % (code) 
+                # print(name)
                 download = Downloader(url=url, 
                                       filename=name,
                                       store_filepath=self.get_store_path(),
@@ -294,8 +303,18 @@ class BDF_Data(SeriesIterator):
         return filepath
         
     def fix_series_keys(self, dimension):
-        key='%s.%s' % (self.dataset_code, '.'.join(dimension.values()))
+        key = '%s.%s' % (self.dataset_code, '.'.join(dimension.values()))
         return key
+    
+    def fix_series_names(self, dim, serie_key):
+        dim_keys = dim.keys()
+        if 'title-compl' in dim_keys:
+            serie_name = dim['title-compl']
+        elif 'nat-title' in dim_keys:
+            serie_name = dim['nat-title']
+        else:
+            serie_name = serie_key
+        return serie_name
                         
     def __next__(self):
         '''try...except... for closing the file when an error occurs'''    
@@ -312,20 +331,23 @@ class BDF_Data(SeriesIterator):
                     self.isFinished = True
                     break
                 if elem.tag == self.nsString + 'DataSet' and self.i != len(self.filepath)-1:
-                    # Pass to the next file      
+                    elem.clear()
                     self.i += 1
                     self.file_handle = open(self.filepath[self.i], 'rb')
                     self.context = get_events(self.file_handle, self.nsString)
                     series = self.__next__()
-                    elem.clear()
                     break                    
                 if elem.tag == self.nsString + 'Group':
                     group = slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))
                     obs = list()
-                    self.nbseries += 1
                     elem.clear()
                 elif elem.tag == self.nsString + 'Obs':
-                    obs.append(slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items())))                    
+                    try:
+                        obs.append(slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items())))                    
+                    except UnboundLocalError:
+                        group = OrderedDict()
+                        obs = list()
+                        obs.append(slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))) 
                     elem.clear()
                 elif elem.tag == self.nsString + 'Series':
                     p_series = slugify_dict(OrderedDict((k,v) for k,v in elem.attrib.items()))                                   
@@ -393,15 +415,15 @@ class BDF_Data(SeriesIterator):
             attributes[key] = self.attribute_list.update_entry(key,
                                                                 str(attrib[key]),
                                                                 attrib[key])
-            
-        series_name = dim['title-compl']
-        series_key =  self.fix_series_keys(dimensions)
+                                                        
+        serie_key =  self.fix_series_keys(dimensions)
+        serie_name = self.fix_series_names(dim, serie_key)
     
         bson['values'] = values                
         bson['provider_name'] = self.provider_name       
         bson['dataset_code'] = self.dataset_code
-        bson['name'] = series_name
-        bson['key'] = str(series_key)
+        bson['name'] = serie_name
+        bson['key'] = str(serie_key)
         bson['start_date'] = start_date
         bson['end_date'] = end_date
         bson['last_update'] = self.release_date
