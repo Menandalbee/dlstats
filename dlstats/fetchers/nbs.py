@@ -1931,7 +1931,7 @@ class NBS_Data(SeriesIterator):
         self.filepath = self._load_datas()       
         self.file_handle = None
          
-        self.name_series = None         
+        self.series_name = None         
         self.nbseries = 0
     
     def _load_datas(self):
@@ -1998,7 +1998,7 @@ class NBS_Data(SeriesIterator):
                     break                                              
                 if elem.tag == 'data' and self.i == len(self.filepath)-1:
                     self.nbseries +=1
-                    series = self.clean_field(self._build_series(self.name_series, self.periodslist, self.valueslist, self.freq))                     
+                    series = self.clean_field(self._build_series(self.serie_name, self.periodslist, self.valueslist, self.freq))                     
                     return series                
                 if elem.tag == 'data' and self.i != len(self.filepath)-1:
                     continue                    
@@ -2011,13 +2011,13 @@ class NBS_Data(SeriesIterator):
                     continue
                     
                 children=list(elem)
-                if not self.name_series:
-                    self.name_series = children[0].text
+                if not self.serie_name:
+                    self.serie_name = children[0].text
                     self.periodslist = list()
                     self.valueslist = list()
                     
                 name = children[0].text
-                if name == self.name_series:
+                if name == self.serie_name:
                     self.periodslist.append(children[1].text)
                     if children[2].text:                        
                         self.valueslist.append(children[2].text)
@@ -2026,8 +2026,8 @@ class NBS_Data(SeriesIterator):
                     continue
                 else:
                     self.nbseries +=1
-                    series = self.clean_field(self._build_series(self.name_series, self.periodslist, self.valueslist, self.freq))   
-                    self.name_series = name
+                    series = self.clean_field(self._build_series(self.serie_name, self.periodslist, self.valueslist, self.freq))   
+                    self.serie_name = name
                     self.periodslist = list()
                     self.periodslist.append(children[1].text)
                     self.valueslist = list()
@@ -2050,7 +2050,7 @@ class NBS_Data(SeriesIterator):
         bson = super().clean_field(bson)
         return bson
                         
-    def _build_series(self, name_series, periodslist, valueslist, freq):
+    def _build_series(self, serie_name, periodslist, valueslist, freq):
         dimensions = OrderedDict()
         attributes = OrderedDict()
         bson = OrderedDict()  
@@ -2058,7 +2058,7 @@ class NBS_Data(SeriesIterator):
         frequency = list(freq.keys())[0]
         if frequency == 'Q':
             periodslist = [clean_quarterly(p) for p in periodslist]       
-        unit = re.match(r'.*\((.*)\)', name_series).group(1)
+        unit = re.match(r'.*\((.*)\)', serie_name).group(1)
         start_date, end_date = get_dates(periodslist, frequency)
         self.dataset.add_frequency(frequency)
                 
@@ -2086,12 +2086,12 @@ class NBS_Data(SeriesIterator):
         if dimensions['UNIT'] not in self.dataset.codelists['UNIT']:
             self.dataset.codelists['UNIT'][dimensions['UNIT']] = dimensions['UNIT']                                                        
         
-        series_key =  self.nbseries       
+        serie_key =  self.nbseries       
         bson['values'] = values                
         bson['provider_name'] = self.provider_name       
         bson['dataset_code'] = self.dataset_code
-        bson['name'] = name_series
-        bson['key'] = str(series_key)
+        bson['name'] = serie_name
+        bson['key'] = str(serie_key)
         bson['start_date'] = start_date
         bson['end_date'] = end_date
         bson['last_update'] = self.release_date
